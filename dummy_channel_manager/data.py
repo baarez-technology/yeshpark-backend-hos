@@ -133,160 +133,100 @@ def seed_data():
     hotel1_id = uuid4()
     hotel1 = Hotel(
         id=hotel1_id,
-        name="Grand Plaza Hotel",
-        address="123 Luxury Avenue",
-        city="New York",
-        country="USA",
-        timezone="America/New_York",
+        name="HOTEL YESH PARK",
+        address="23/1184, SODHAN NAGAR RD, BESIDE RTC, SOASEKARA PURAM",
+        city="NELLORE",
+        country="India",
+        timezone="Asia/Kolkata",
         created_at=now
     )
     hotels_db[hotel1_id] = hotel1
     
-    hotel2_id = uuid4()
-    hotel2 = Hotel(
-        id=hotel2_id,
-        name="Oceanview Resort & Spa",
-        address="456 Beach Boulevard",
-        city="Miami",
-        country="USA",
-        timezone="America/New_York",
-        created_at=now
-    )
-    hotels_db[hotel2_id] = hotel2
-    
-    hotel3_id = uuid4()
-    hotel3 = Hotel(
-        id=hotel3_id,
-        name="Metropolitan Business Hotel",
-        address="789 Downtown Street",
-        city="San Francisco",
-        country="USA",
-        timezone="America/Los_Angeles",
-        created_at=now
-    )
-    hotels_db[hotel3_id] = hotel3
-    
-    # Create Room Types for Hotel 1
+    # Create Room Types for HOTEL YESH PARK
+    # 1) SUI - SUITE - 8 ROOMS
     rt1_id = uuid4()
     rt1 = RoomType(
         id=rt1_id,
         hotel_id=hotel1_id,
-        name="Standard King",
-        description="Comfortable king-size bed with city view",
-        max_occupancy=2,
-        base_capacity=20
+        name="Suite (SUI)",
+        description="Luxury suite room with premium amenities",
+        max_occupancy=3,
+        base_capacity=8
     )
     room_types_db[rt1_id] = rt1
-    room_id_to_uuid_map[1] = rt1_id  # Map room_id 1 to this room type
+    room_id_to_uuid_map[1] = rt1_id  # Map room_id 1 to SUI
     uuid_to_room_id_map[rt1_id] = 1
     
+    # 2) SUK - SUPERIOR KING - 24 ROOMS
     rt2_id = uuid4()
     rt2 = RoomType(
         id=rt2_id,
         hotel_id=hotel1_id,
-        name="Deluxe Suite",
-        description="Spacious suite with living area and premium amenities",
-        max_occupancy=4,
-        base_capacity=10
+        name="Superior King (SUK)",
+        description="Superior king room with modern comfort",
+        max_occupancy=3,
+        base_capacity=24
     )
     room_types_db[rt2_id] = rt2
-    room_id_to_uuid_map[2] = rt2_id
+    room_id_to_uuid_map[2] = rt2_id  # Map room_id 2 to SUK
     uuid_to_room_id_map[rt2_id] = 2
     
+    # 3) SUT - SUPERIOR TWIN - 8 ROOMS
     rt3_id = uuid4()
     rt3 = RoomType(
         id=rt3_id,
         hotel_id=hotel1_id,
-        name="Executive King",
-        description="Premium room with executive lounge access",
-        max_occupancy=2,
-        base_capacity=15
+        name="Superior Twin (SUT)",
+        description="Superior twin room with twin beds",
+        max_occupancy=3,
+        base_capacity=8
     )
     room_types_db[rt3_id] = rt3
-    room_id_to_uuid_map[3] = rt3_id
+    room_id_to_uuid_map[3] = rt3_id  # Map room_id 3 to SUT
     uuid_to_room_id_map[rt3_id] = 3
     
-    # Create Room Types for Hotel 2
-    rt4_id = uuid4()
-    rt4 = RoomType(
-        id=rt4_id,
-        hotel_id=hotel2_id,
-        name="Ocean View King",
-        description="Stunning ocean view with balcony",
-        max_occupancy=2,
-        base_capacity=25
-    )
-    room_types_db[rt4_id] = rt4
-    room_id_to_uuid_map[4] = rt4_id
-    uuid_to_room_id_map[rt4_id] = 4
-    
-    rt5_id = uuid4()
-    rt5 = RoomType(
-        id=rt5_id,
-        hotel_id=hotel2_id,
-        name="Presidential Suite",
-        description="Luxury suite with private terrace and butler service",
-        max_occupancy=6,
-        base_capacity=2
-    )
-    room_types_db[rt5_id] = rt5
-    room_id_to_uuid_map[5] = rt5_id
-    uuid_to_room_id_map[rt5_id] = 5
-    
-    # Create Room Types for Hotel 3
-    rt6_id = uuid4()
-    rt6 = RoomType(
-        id=rt6_id,
-        hotel_id=hotel3_id,
-        name="Business Twin",
-        description="Two twin beds with work desk and high-speed internet",
-        max_occupancy=2,
-        base_capacity=30
-    )
-    room_types_db[rt6_id] = rt6
-    room_id_to_uuid_map[6] = rt6_id
-    uuid_to_room_id_map[rt6_id] = 6
-    
     # Create Rates
-    # Hotel 1 - Standard King rates
+    # Hotel 1 - Suite (SUI) rates (Single/Double: 4499, EXB: 500, Tax: 5%)
     rate1_id = uuid4()
     rate1 = Rate(
         id=rate1_id,
         room_type_id=rt1_id,
         rate_plan=RatePlan.BAR,
-        base_rate=12500.0,
+        base_rate=4499.0,
         currency="INR",
         start_date=None,
         end_date=None,
         weekday_multiplier=1.0,
-        weekend_multiplier=1.25,
+        weekend_multiplier=1.0,
         specific_dates={},
         created_at=now
     )
     rates_db[rate1_id] = rate1
 
+    # Hotel 1 - Superior King (SUK) rates (Single: 2499, Double: 2899, EXB: 500, Tax: 5%)
     rate2_id = uuid4()
     rate2 = Rate(
         id=rate2_id,
-        room_type_id=rt1_id,
-        rate_plan=RatePlan.NON_REFUNDABLE,
-        base_rate=10800.0,
+        room_type_id=rt2_id,
+        rate_plan=RatePlan.BAR,
+        base_rate=2899.0,
         currency="INR",
         start_date=None,
         end_date=None,
         weekday_multiplier=1.0,
-        weekend_multiplier=1.20,
+        weekend_multiplier=1.0,
         specific_dates={},
         created_at=now
     )
     rates_db[rate2_id] = rate2
 
+    # Hotel 1 - Superior Twin (SUT) rates (Single: 2499, Double: 2899, EXB: 500, Tax: 5%)
     rate3_id = uuid4()
     rate3 = Rate(
         id=rate3_id,
-        room_type_id=rt1_id,
-        rate_plan=RatePlan.CORPORATE,
-        base_rate=11600.0,
+        room_type_id=rt3_id,
+        rate_plan=RatePlan.BAR,
+        base_rate=2899.0,
         currency="INR",
         start_date=None,
         end_date=None,
@@ -296,111 +236,10 @@ def seed_data():
         created_at=now
     )
     rates_db[rate3_id] = rate3
-
-    # Hotel 1 - Deluxe Suite rates
-    rate4_id = uuid4()
-    rate4 = Rate(
-        id=rate4_id,
-        room_type_id=rt2_id,
-        rate_plan=RatePlan.BAR,
-        base_rate=29000.0,
-        currency="INR",
-        start_date=None,
-        end_date=None,
-        weekday_multiplier=1.0,
-        weekend_multiplier=1.30,
-        specific_dates={},
-        created_at=now
-    )
-    rates_db[rate4_id] = rate4
-
-    # Hotel 1 - Executive King rates
-    rate5_id = uuid4()
-    rate5 = Rate(
-        id=rate5_id,
-        room_type_id=rt3_id,
-        rate_plan=RatePlan.BAR,
-        base_rate=23000.0,
-        currency="INR",
-        start_date=None,
-        end_date=None,
-        weekday_multiplier=1.0,
-        weekend_multiplier=1.25,
-        specific_dates={},
-        created_at=now
-    )
-    rates_db[rate5_id] = rate5
-
-    # Hotel 2 - Ocean View King rates
-    rate6_id = uuid4()
-    rate6 = Rate(
-        id=rate6_id,
-        room_type_id=rt4_id,
-        rate_plan=RatePlan.BAR,
-        base_rate=20750.0,
-        currency="INR",
-        start_date=None,
-        end_date=None,
-        weekday_multiplier=1.0,
-        weekend_multiplier=1.40,
-        specific_dates={},
-        created_at=now
-    )
-    rates_db[rate6_id] = rate6
-
-    # Hotel 2 - Presidential Suite rates
-    rate7_id = uuid4()
-    rate7 = Rate(
-        id=rate7_id,
-        room_type_id=rt5_id,
-        rate_plan=RatePlan.BAR,
-        base_rate=99500.0,
-        currency="INR",
-        start_date=None,
-        end_date=None,
-        weekday_multiplier=1.0,
-        weekend_multiplier=1.50,
-        specific_dates={},
-        created_at=now
-    )
-    rates_db[rate7_id] = rate7
-
-    # Hotel 3 - Business Twin rates
-    rate8_id = uuid4()
-    rate8 = Rate(
-        id=rate8_id,
-        room_type_id=rt6_id,
-        rate_plan=RatePlan.BAR,
-        base_rate=15000.0,
-        currency="INR",
-        start_date=None,
-        end_date=None,
-        weekday_multiplier=1.0,
-        weekend_multiplier=1.15,
-        specific_dates={},
-        created_at=now
-    )
-    rates_db[rate8_id] = rate8
-
-    rate9_id = uuid4()
-    rate9 = Rate(
-        id=rate9_id,
-        room_type_id=rt6_id,
-        rate_plan=RatePlan.CORPORATE,
-        base_rate=13300.0,
-        currency="INR",
-        start_date=None,
-        end_date=None,
-        weekday_multiplier=1.0,
-        weekend_multiplier=1.0,
-        specific_dates={},
-        created_at=now
-    )
-    rates_db[rate9_id] = rate9
     
     # Initialize some inventory for next 90 days
     future_date = date.today() + timedelta(days=90)
-    for room_type_id in [rt1_id, rt2_id, rt3_id, rt4_id, rt5_id, rt6_id]:
+    for room_type_id in [rt1_id, rt2_id, rt3_id]:
         initialize_inventory_for_date_range(room_type_id, date.today(), future_date)
     
     # Create a sample reservation

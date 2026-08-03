@@ -1,124 +1,97 @@
 {
   "hotel": {
-    "name": "Glimmora",
-    "tagline": "Grounded in Luxury",
-    "full_name": "Glimmora Hotel & Suites",
-    "description": "A luxury boutique hotel offering exceptional hospitality and personalized service."
+    "name": "HOTEL YESH PARK",
+    "tagline": "Comfort & Luxury in Nellore",
+    "full_name": "HOTEL YESH PARK",
+    "description": "Premium hotel located beside RTC in Nellore, Andhra Pradesh offering luxury suites, superior king, and superior twin rooms.",
+    "gstin": "37AAFCR8751F1Z3"
   },
   "contact": {
     "phone": {
-      "main": "+1 (310) 555-2847",
-      "reservations": "+1 (310) 555-2848",
-      "emergency": "+1 (310) 555-9999"
+      "main": "+91 861 234 5678",
+      "reservations": "+91 861 234 5679",
+      "emergency": "+91 861 234 5680"
     },
     "email": {
-      "general": "info@glimmora.com",
-      "reservations": "reservations@glimmora.com",
-      "support": "support@glimmora.com",
-      "feedback": "feedback@glimmora.com"
+      "general": "info@hotelyeshpark.com",
+      "reservations": "reservations@hotelyeshpark.com",
+      "support": "support@hotelyeshpark.com",
+      "feedback": "feedback@hotelyeshpark.com"
     },
     "address": {
-      "street": "1250 Ocean Boulevard",
-      "city": "Santa Monica",
-      "state": "California",
-      "zip": "90401",
-      "country": "United States"
+      "street": "23/1184, SODHAN NAGAR RD, BESIDE RTC, SOASEKARA PURAM",
+      "city": "NELLORE",
+      "state": "ANDHRA PRADESH",
+      "zip": "524003",
+      "country": "India"
     },
     "social": {
-      "instagram": "https://instagram.com/glimmora",
-      "facebook": "https://facebook.com/glimmora",
-      "twitter": "@glimmora"
+      "instagram": "https://instagram.com/hotelyeshpark",
+      "facebook": "https://facebook.com/hotelyeshpark",
+      "twitter": "@hotelyeshpark"
     }
   },
   "hours": {
     "front_desk": "24/7",
-    "check_in": "3:00 PM",
+    "check_in": "12:00 PM",
     "check_out": "11:00 AM",
     "early_check_in": "Available upon request (subject to availability)",
     "late_check_out": "Available upon request (additional charges may apply)",
     "restaurant": {
       "breakfast": "7:00 AM - 10:30 AM",
-      "lunch": "12:00 PM - 2:30 PM",
-      "dinner": "6:00 PM - 10:00 PM"
-    },
-    "spa": "9:00 AM - 9:00 PM",
-    "gym": "6:00 AM - 10:00 PM",
-    "pool": "7:00 AM - 10:00 PM"
+      "lunch": "12:00 PM - 3:00 PM",
+      "dinner": "7:00 PM - 10:30 PM"
+    }
   },
   "policies": {
     "cancellation": {
-      "free_cancellation_hours": 48,
+      "free_cancellation_hours": 24,
       "penalty_percentage": 100,
-      "description": "Free cancellation up to 48 hours before check-in. Cancellations within 48 hours will be charged the first night's rate."
+      "description": "Free cancellation up to 24 hours before check-in."
     },
     "payment": {
-      "accepted_methods": ["Credit Card", "Debit Card", "Bank Transfer"],
-      "deposit_required": true,
-      "deposit_percentage": 50,
+      "accepted_methods": ["Credit Card", "Debit Card", "UPI", "Net Banking", "Cash"],
+      "deposit_required": false,
       "full_payment_due": "At check-in"
     },
-    "pets": {
-      "allowed": true,
-      "fee_per_night": 50,
-      "max_weight_lbs": 30,
-      "description": "Pets under 30 lbs are welcome with a $50/night fee. Service animals are always welcome at no additional charge."
-    },
-    "smoking": "Non-smoking property. Designated outdoor smoking areas available.",
-    "age_requirement": "Guests must be 21 years or older to check in.",
-    "id_requirement": "Valid government-issued photo ID required at check-in."
-  },
-  "amenities": {
-    "complimentary": [
-      "High-speed WiFi",
-      "Fitness Center Access",
-      "Welcome Drink",
-      "Daily Newspaper",
-      "Parking (self-park)"
-    ],
-    "premium": [
-      "Spa Services",
-      "Room Service",
-      "Valet Parking",
-      "Airport Transfer",
-      "Concierge Services"
-    ]
+    "tax": {
+      "percentage": 5.0,
+      "description": "5% GST"
+    }
   },
   "room_types": [
     {
-      "name": "Standard Room",
-      "description": "Comfortable room with modern amenities",
-      "max_occupancy": 2,
-      "bed_type": "Queen"
-    },
-    {
-      "name": "Deluxe Room",
-      "description": "Spacious room with city views",
-      "max_occupancy": 3,
-      "bed_type": "King"
-    },
-    {
+      "code": "SUI",
       "name": "Suite",
-      "description": "Luxury suite with separate living area",
-      "max_occupancy": 4,
-      "bed_type": "King + Sofa Bed"
+      "short_description": "SUITE - 8 Rooms",
+      "total_rooms": 8,
+      "single_rate": 4499,
+      "double_rate": 4499,
+      "extra_bed_rate": 500,
+      "tax_percentage": 5,
+      "max_occupancy": 3
     },
     {
-      "name": "Pacific Suite",
-      "description": "Premium oceanview suite with private balcony",
-      "max_occupancy": 4,
-      "bed_type": "King + Sofa Bed"
+      "code": "SUK",
+      "name": "Superior King",
+      "short_description": "SUPERIOR KING - 24 Rooms",
+      "total_rooms": 24,
+      "single_rate": 2499,
+      "double_rate": 2899,
+      "extra_bed_rate": 500,
+      "tax_percentage": 5,
+      "max_occupancy": 3
+    },
+    {
+      "code": "SUT",
+      "name": "Superior Twin",
+      "short_description": "SUPERIOR TWIN - 8 Rooms",
+      "total_rooms": 8,
+      "single_rate": 2499,
+      "double_rate": 2899,
+      "extra_bed_rate": 500,
+      "tax_percentage": 5,
+      "max_occupancy": 3
     }
-  ],
-  "ai_assistant": {
-    "name": "Aria",
-    "personality": "friendly, professional, helpful",
-    "greeting": "Hello! I'm Aria, your personal assistant at {hotel_name}. How can I help you today?",
-    "fallback_message": "I apologize, but I'm not able to help with that request. Please contact our front desk at {phone_main} for assistance.",
-    "escalation_message": "I'd be happy to connect you with our team. Please contact us at {phone_main} or email {email_support} for immediate assistance."
-  },
-  "support": {
-    "human_handoff_message": "For immediate assistance, please contact our 24/7 front desk at {phone_main}. You can also email {email_support} and we'll respond within 1 hour during business hours.",
-    "emergency_message": "For emergencies, please call {phone_emergency} or dial 911.",
-    "feedback_message": "We value your feedback! Please email {email_feedback} or speak with our front desk."
-  }
+  ]
 }

@@ -108,3 +108,7 @@ If you get a "port already in use" error:
 - The channel manager endpoints now support optional authentication
 - Internal service calls (from dummy channel manager) don't require authentication
 - Frontend calls should include Bearer token in Authorization header
+
+
+
+python -m uvicorn app.main:app --reload --port 8000

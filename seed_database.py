@@ -131,202 +131,75 @@ def seed_users(cursor):
 
 
 def seed_room_types(cursor):
-    """Seed room types matching frontend roomsData.ts"""
+    """Seed room types matching Hotel Yesh Park specification"""
     print("\nSeeding room types...")
 
     room_types = [
         {
-            "name": "Minimalist Studio",
-            "slug": "minimalist-studio",
-            "category": "standard",
-            "description": "Less is more in this thoughtfully curated studio where every element serves a purpose. Clean lines, natural materials, and purposeful design create a calm environment perfect for solo travelers or couples seeking simplicity. Experience the beauty of intentional living in our most intimate space.",
-            "short_description": "Elegant simplicity with modern comfort and intentional design",
-            "base_price": 15000.00,
-            "max_guests": 2,
-            "bed_type": "Organic Queen Bed",
-            "size_sqft": 280,
-            "view_type": "Courtyard View",
-            "amenities": json.dumps(["Free WiFi", "Air Conditioning", "Smart TV", "Mini Refrigerator", "Coffee Maker", "In-Room Safe", "Yoga Mat", "Organic Toiletries", "Cozy Robes", "Room Service", "Daily Housekeeping", "Work Surface", "Air Purifier", "Blackout Shades"]),
-            "features": json.dumps(["Modern Design", "Compact Layout", "Natural Light"]),
+            "name": "Suite",
+            "slug": "sui",
+            "category": "suite",
+            "description": "Luxurious Suite room at Hotel Yesh Park featuring premium amenities, spacious layout, and maximum comfort.",
+            "short_description": "Luxury suite with premium comfort - 8 Rooms available",
+            "base_price": 4499.00,
+            "max_guests": 3,
+            "bed_type": "King Bed",
+            "size_sqft": 450,
+            "view_type": "City View",
+            "amenities": json.dumps(["Free WiFi", "Air Conditioning", "Smart TV", "Mini Refrigerator", "Coffee Maker", "In-Room Safe", "Room Service", "Daily Housekeeping", "Work Desk", "Tax 5%"]),
+            "features": json.dumps(["Spacious Suite Layout", "Luxury Bath", "Premium Bedding"]),
             "images": json.dumps([
-                "/images/rooms/room-1.jpg",
-                "/images/rooms/room-2.jpg",
-                "/images/rooms/room-3.jpg"
+                "/images/rooms/suite-1.jpg",
+                "/images/rooms/suite-2.jpg"
             ]),
-            "rating": 4.6,
-            "review_count": 89,
+            "rating": 4.9,
+            "review_count": 120,
             "is_active": True,
             "sort_order": 1
         },
         {
-            "name": "Coastal Retreat",
-            "slug": "coastal-retreat",
-            "category": "standard",
-            "description": "A thoughtfully designed sanctuary where natural textures and modern comfort converge. This intimate space features organic materials, soft neutral tones, and floor-to-ceiling windows that frame views of Santa Monica. Perfect for mindful travelers seeking a grounded luxury experience in a serene setting.",
-            "short_description": "Thoughtfully designed with organic materials and garden views",
-            "base_price": 15500.00,
-            "max_guests": 2,
-            "bed_type": "Organic Cotton Queen Bed",
-            "size_sqft": 320,
-            "view_type": "Garden View",
-            "amenities": json.dumps(["Free WiFi", "Air Conditioning", "Smart TV", "Organic Mini Bar", "Coffee Maker", "In-Room Safe", "Yoga Mat", "Sustainable Toiletries", "Plush Robes", "Room Service (24/7)", "Daily Housekeeping", "Blackout Shades", "Work Desk", "Air Purifier"]),
-            "features": json.dumps(["Floor-to-ceiling Windows", "Natural Materials", "Sustainable Design"]),
+            "name": "Superior King",
+            "slug": "suk",
+            "category": "superior",
+            "description": "Elegant Superior King room with plush king bed, work desk, and contemporary decor.",
+            "short_description": "Superior King room - 24 Rooms available",
+            "base_price": 2899.00,
+            "max_guests": 3,
+            "bed_type": "King Bed",
+            "size_sqft": 350,
+            "view_type": "City View",
+            "amenities": json.dumps(["Free WiFi", "Air Conditioning", "Smart TV", "Mini Refrigerator", "Coffee Maker", "In-Room Safe", "Room Service", "Daily Housekeeping", "Work Desk", "Tax 5%"]),
+            "features": json.dumps(["Plush King Bed", "Modern Amenities", "Work Station"]),
             "images": json.dumps([
-                "/images/rooms/room-2.jpg",
-                "/images/rooms/room-1.jpg",
-                "/images/rooms/room-3.jpg"
+                "/images/rooms/superior-king-1.jpg",
+                "/images/rooms/superior-king-2.jpg"
             ]),
-            "rating": 4.7,
-            "review_count": 142,
+            "rating": 4.8,
+            "review_count": 210,
             "is_active": True,
             "sort_order": 2
         },
         {
-            "name": "Urban Oasis",
-            "slug": "urban-oasis",
-            "category": "deluxe",
-            "description": "Experience elevated living in this spacious suite where contemporary design meets California ease. Featuring natural wood accents, artisanal textiles, and a dedicated relaxation area, this space embodies the perfect balance between sophistication and comfort. Floor-to-ceiling windows invite natural light throughout the day.",
-            "short_description": "Spacious elegance with contemporary design and city views",
-            "base_price": 20500.00,
+            "name": "Superior Twin",
+            "slug": "sut",
+            "category": "superior",
+            "description": "Comfortable Superior Twin room with twin beds, modern workspace, and elegant finishes.",
+            "short_description": "Superior Twin room - 8 Rooms available",
+            "base_price": 2899.00,
             "max_guests": 3,
-            "bed_type": "Premium King Bed",
-            "size_sqft": 425,
+            "bed_type": "Twin Bed",
+            "size_sqft": 350,
             "view_type": "City View",
-            "amenities": json.dumps(["Free WiFi", "Air Conditioning", "Smart TV (55\")", "Curated Mini Bar", "Nespresso Machine", "In-Room Safe", "Yoga Mat", "Luxury Bath Products", "Premium Robes & Slippers", "Room Service (24/7)", "Daily Housekeeping", "Seating Area", "Executive Desk", "Air Purifier", "Premium Bedding"]),
-            "features": json.dumps(["Dedicated Relaxation Area", "Natural Wood Accents", "Large Windows", "Modern Bathroom"]),
+            "amenities": json.dumps(["Free WiFi", "Air Conditioning", "Smart TV", "Mini Refrigerator", "Coffee Maker", "In-Room Safe", "Room Service", "Daily Housekeeping", "Work Desk", "Tax 5%"]),
+            "features": json.dumps(["Twin Beds", "Work Space", "Modern Bathroom"]),
             "images": json.dumps([
-                "/images/rooms/room-4.jpg",
-                "/images/rooms/room-5.jpg",
-                "/images/rooms/room-6.jpg",
-                "/images/rooms/room-12.jpg"
+                "/images/rooms/superior-twin-1.jpg",
+                "/images/rooms/superior-twin-2.jpg"
             ]),
-            "rating": 4.8,
-            "review_count": 203,
+            "rating": 4.7,
+            "review_count": 95,
             "is_active": True,
             "sort_order": 3
-        },
-        {
-            "name": "Sunset Vista",
-            "slug": "sunset-vista",
-            "category": "deluxe",
-            "description": "Wake to golden hour light in this westward-facing suite designed to capture California's legendary sunsets. Featuring warm wood tones, natural fiber textiles, and a private balcony with ocean breezes, this space invites you to slow down and savor each moment. The perfect sanctuary for those seeking coastal tranquility.",
-            "short_description": "Stunning sunset views with coastal elegance and private balcony",
-            "base_price": 26000.00,
-            "max_guests": 3,
-            "bed_type": "Premium King Bed",
-            "size_sqft": 450,
-            "view_type": "Ocean Sunset View",
-            "amenities": json.dumps(["Free WiFi", "Air Conditioning", "Smart TV (55\")", "Organic Mini Bar", "Nespresso Machine", "In-Room Safe", "Private Balcony", "Yoga Mat", "Organic Toiletries", "Plush Robes & Slippers", "Room Service (24/7)", "Daily Housekeeping", "Seating Area", "Work Desk", "Air Purifier", "Premium Bedding", "Binoculars"]),
-            "features": json.dumps(["Private Balcony", "Ocean Views", "Sunset Views", "Romantic Setting"]),
-            "images": json.dumps([
-                "/images/rooms/room-7.jpg",
-                "/images/rooms/room-8.jpg",
-                "/images/rooms/room-9.jpg",
-                "/images/rooms/room-4.jpg"
-            ]),
-            "rating": 4.9,
-            "review_count": 187,
-            "is_active": True,
-            "sort_order": 4
-        },
-        {
-            "name": "Pacific Suite",
-            "slug": "pacific-suite",
-            "category": "suite",
-            "description": "Discover refined coastal living in our signature Pacific Suite. This expansive retreat features a separate living area with handcrafted furnishings, a spa-inspired bathroom with natural stone finishes, and breathtaking ocean glimpses. Every detail reflects our commitment to sustainable luxury and mindful hospitality.",
-            "short_description": "Expansive luxury with separate living area and ocean views",
-            "base_price": 32000.00,
-            "max_guests": 4,
-            "bed_type": "Luxury King Bed",
-            "size_sqft": 680,
-            "view_type": "Partial Ocean View",
-            "amenities": json.dumps(["Free WiFi", "Air Conditioning", "Smart TV (65\")", "Premium Mini Bar", "Nespresso & Tea Service", "In-Room Safe", "Yoga Mat", "Organic Bath Products", "Designer Robes & Slippers", "Room Service (24/7)", "Twice Daily Housekeeping", "Separate Living Area", "Executive Workspace", "Air Purifier", "Premium Organic Bedding", "Walk-in Closet", "Soaking Tub", "Rain Shower"]),
-            "features": json.dumps(["Separate Living Room", "Spa Bathroom", "Walk-in Closet", "Ocean Glimpses", "Handcrafted Furnishings"]),
-            "images": json.dumps([
-                "/images/rooms/room-10.jpg",
-                "/images/rooms/room-11.jpg",
-                "/images/rooms/room-6.jpg",
-                "/images/rooms/room-13.jpg",
-                "/images/rooms/room-9.jpg"
-            ]),
-            "rating": 4.9,
-            "review_count": 156,
-            "is_active": True,
-            "sort_order": 5
-        },
-        {
-            "name": "Wellness Suite",
-            "slug": "wellness-suite",
-            "category": "suite",
-            "description": "Designed for the health-conscious traveler, this suite integrates wellness into every detail. From the organic bedding to the in-room wellness amenities, meditation space, and air purification system, this sanctuary supports your commitment to mindful living. Floor-to-ceiling windows invite natural light and ocean breezes.",
-            "short_description": "Health-focused luxury with meditation space and wellness amenities",
-            "base_price": 35000.00,
-            "max_guests": 2,
-            "bed_type": "Organic King Mattress",
-            "size_sqft": 520,
-            "view_type": "Ocean View",
-            "amenities": json.dumps(["Free WiFi", "Air Conditioning", "Smart TV (55\")", "Healthy Mini Bar", "Tea Ceremony Set", "In-Room Safe", "Yoga Mat & Props", "Meditation Cushion", "Essential Oil Diffuser", "Organic Spa Products", "Luxury Spa Robes", "Room Service (24/7)", "Twice Daily Housekeeping", "Meditation Space", "Standing Desk", "Air Purification", "Organic Bedding", "Aromatherapy Shower", "Circadian Lighting"]),
-            "features": json.dumps(["Dedicated Meditation Space", "Wellness Amenities", "Circadian Lighting", "Advanced Air Purification", "Health-Focused Design"]),
-            "images": json.dumps([
-                "/images/rooms/room-4.jpg",
-                "/images/rooms/room-9.jpg",
-                "/images/rooms/room-6.jpg",
-                "/images/rooms/room-10.jpg"
-            ]),
-            "rating": 5.0,
-            "review_count": 94,
-            "is_active": True,
-            "sort_order": 6
-        },
-        {
-            "name": "Family Sanctuary",
-            "slug": "family-sanctuary",
-            "category": "suite",
-            "description": "Designed with mindful families in mind, this expansive suite offers space for everyone to find their own rhythm. Two private bedrooms, a generous living area with sustainable furnishings, and thoughtful amenities create a harmonious home base. Experience the joy of shared moments and personal retreats in equal measure.",
-            "short_description": "Perfect for families with two bedrooms and spacious living areas",
-            "base_price": 40000.00,
-            "max_guests": 6,
-            "bed_type": "1 King + 2 Twin Beds",
-            "size_sqft": 780,
-            "view_type": "Garden & Partial Ocean View",
-            "amenities": json.dumps(["Free WiFi", "Air Conditioning", "Smart TV (55\")", "Family Mini Bar", "Coffee & Tea Station", "In-Room Safe", "Yoga Mats", "Organic Bath Products", "Robes for All Ages", "Room Service (24/7)", "Daily Housekeeping", "Living Room", "Dining Area", "Kitchenette", "Two Bathrooms", "Work Desk", "Air Purifiers", "Premium Bedding", "Board Games"]),
-            "features": json.dumps(["Two Bedrooms", "Separate Living Room", "Dining Area", "Kitchenette", "Child-Friendly", "Extra Space"]),
-            "images": json.dumps([
-                "/images/rooms/room-11.jpg",
-                "/images/rooms/room-10.jpg",
-                "/images/rooms/room-5.jpg",
-                "/images/rooms/room-14.jpg",
-                "/images/rooms/room-9.jpg"
-            ]),
-            "rating": 4.8,
-            "review_count": 178,
-            "is_active": True,
-            "sort_order": 7
-        },
-        {
-            "name": "Oceanfront Penthouse",
-            "slug": "oceanfront-penthouse",
-            "category": "presidential",
-            "description": "The pinnacle of TERRA Suites' philosophy of grounded luxury. This stunning penthouse spans over 1,100 square feet and showcases panoramic Pacific Ocean views, custom sustainable furnishings, and a private terrace. Experience the seamless blend of modern architecture and natural beauty in this extraordinary space designed for discerning travelers.",
-            "short_description": "The ultimate in luxury with panoramic views and private terrace",
-            "base_price": 62500.00,
-            "max_guests": 4,
-            "bed_type": "California King Bed",
-            "size_sqft": 1100,
-            "view_type": "Panoramic Ocean View",
-            "amenities": json.dumps(["Free WiFi", "Air Conditioning", "Smart TV (75\")", "Wine & Cocktail Bar", "Nespresso & Tea Collection", "In-Room Safe", "Private Terrace", "Yoga Mat", "Luxury Organic Bath Products", "Designer Robes", "Butler Service", "Twice Daily Housekeeping", "Living & Dining Areas", "Executive Office", "Air Purification", "Premium Organic Bedding", "Walk-in Closet", "Spa Bathroom", "Deep Soaking Tub", "Rainfall Shower", "Telescope", "Sound System"]),
-            "features": json.dumps(["Private Terrace", "Panoramic Views", "Master Bedroom", "Separate Living Room", "Dining Area", "Bar Area", "Spa Bathroom", "Butler Service Available"]),
-            "images": json.dumps([
-                "/images/rooms/room-3.jpg",
-                "/images/rooms/room-5.jpg",
-                "/images/rooms/room-10.jpg",
-                "/images/rooms/room-11.jpg",
-                "/images/rooms/room-14.jpg"
-            ]),
-            "rating": 5.0,
-            "review_count": 67,
-            "is_active": True,
-            "sort_order": 8
         }
     ]
 
@@ -347,7 +220,7 @@ def seed_room_types(cursor):
 
 
 def seed_rooms(cursor):
-    """Seed individual rooms"""
+    """Seed individual rooms matching Hotel Yesh Park 40 rooms specification"""
     print("\nSeeding rooms...")
 
     # Get room type IDs
@@ -355,44 +228,57 @@ def seed_rooms(cursor):
     room_types = {row[1]: {"id": row[0], "price": row[1], "bed_type": row[3], "max_guests": row[4]} for row in cursor.fetchall()}
 
     rooms = [
-        # Minimalist Studios (Floor 1)
-        {"number": "101", "room_type": "Minimalist Studio", "floor": 1, "status": "available", "view_type": "Courtyard View"},
-        {"number": "102", "room_type": "Minimalist Studio", "floor": 1, "status": "available", "view_type": "Courtyard View"},
-        {"number": "103", "room_type": "Minimalist Studio", "floor": 1, "status": "occupied", "view_type": "Courtyard View"},
+        # SUI - SUITE (8 Rooms)
+        {"number": "1001", "room_type": "Suite", "floor": 1, "status": "available", "view_type": "City View"},
+        {"number": "1010", "room_type": "Suite", "floor": 1, "status": "available", "view_type": "City View"},
+        {"number": "2001", "room_type": "Suite", "floor": 2, "status": "available", "view_type": "City View"},
+        {"number": "2010", "room_type": "Suite", "floor": 2, "status": "available", "view_type": "City View"},
+        {"number": "3001", "room_type": "Suite", "floor": 3, "status": "occupied", "view_type": "City View"},
+        {"number": "3010", "room_type": "Suite", "floor": 3, "status": "available", "view_type": "City View"},
+        {"number": "4001", "room_type": "Suite", "floor": 4, "status": "available", "view_type": "City View"},
+        {"number": "4010", "room_type": "Suite", "floor": 4, "status": "available", "view_type": "City View"},
 
-        # Coastal Retreats (Floor 1-2)
-        {"number": "104", "room_type": "Coastal Retreat", "floor": 1, "status": "available", "view_type": "Garden View"},
-        {"number": "201", "room_type": "Coastal Retreat", "floor": 2, "status": "available", "view_type": "Garden View"},
-        {"number": "202", "room_type": "Coastal Retreat", "floor": 2, "status": "cleaning", "view_type": "Garden View"},
+        # SUK - SUPERIOR KING (24 Rooms)
+        # Floor 1 (4 rooms)
+        {"number": "1002", "room_type": "Superior King", "floor": 1, "status": "available", "view_type": "City View"},
+        {"number": "1006", "room_type": "Superior King", "floor": 1, "status": "available", "view_type": "City View"},
+        {"number": "1008", "room_type": "Superior King", "floor": 1, "status": "available", "view_type": "City View"},
+        {"number": "1009", "room_type": "Superior King", "floor": 1, "status": "cleaning", "view_type": "City View"},
+        # Floor 2 (4 rooms)
+        {"number": "2002", "room_type": "Superior King", "floor": 2, "status": "available", "view_type": "City View"},
+        {"number": "2003", "room_type": "Superior King", "floor": 2, "status": "available", "view_type": "City View"},
+        {"number": "2004", "room_type": "Superior King", "floor": 2, "status": "occupied", "view_type": "City View"},
+        {"number": "2009", "room_type": "Superior King", "floor": 2, "status": "available", "view_type": "City View"},
+        # Floor 3 (8 rooms)
+        {"number": "3002", "room_type": "Superior King", "floor": 3, "status": "available", "view_type": "City View"},
+        {"number": "3003", "room_type": "Superior King", "floor": 3, "status": "available", "view_type": "City View"},
+        {"number": "3004", "room_type": "Superior King", "floor": 3, "status": "available", "view_type": "City View"},
+        {"number": "3005", "room_type": "Superior King", "floor": 3, "status": "occupied", "view_type": "City View"},
+        {"number": "3006", "room_type": "Superior King", "floor": 3, "status": "available", "view_type": "City View"},
+        {"number": "3007", "room_type": "Superior King", "floor": 3, "status": "available", "view_type": "City View"},
+        {"number": "3008", "room_type": "Superior King", "floor": 3, "status": "available", "view_type": "City View"},
+        {"number": "3009", "room_type": "Superior King", "floor": 3, "status": "available", "view_type": "City View"},
+        # Floor 4 (8 rooms)
+        {"number": "4002", "room_type": "Superior King", "floor": 4, "status": "available", "view_type": "City View"},
+        {"number": "4003", "room_type": "Superior King", "floor": 4, "status": "available", "view_type": "City View"},
+        {"number": "4004", "room_type": "Superior King", "floor": 4, "status": "available", "view_type": "City View"},
+        {"number": "4005", "room_type": "Superior King", "floor": 4, "status": "available", "view_type": "City View"},
+        {"number": "4006", "room_type": "Superior King", "floor": 4, "status": "available", "view_type": "City View"},
+        {"number": "4007", "room_type": "Superior King", "floor": 4, "status": "available", "view_type": "City View"},
+        {"number": "4008", "room_type": "Superior King", "floor": 4, "status": "available", "view_type": "City View"},
+        {"number": "4009", "room_type": "Superior King", "floor": 4, "status": "available", "view_type": "City View"},
 
-        # Urban Oasis (Floor 2-3)
-        {"number": "203", "room_type": "Urban Oasis", "floor": 2, "status": "available", "view_type": "City View"},
-        {"number": "204", "room_type": "Urban Oasis", "floor": 2, "status": "available", "view_type": "City View"},
-        {"number": "301", "room_type": "Urban Oasis", "floor": 3, "status": "occupied", "view_type": "City View"},
-        {"number": "302", "room_type": "Urban Oasis", "floor": 3, "status": "available", "view_type": "City View"},
-
-        # Sunset Vista (Floor 3-4)
-        {"number": "303", "room_type": "Sunset Vista", "floor": 3, "status": "available", "view_type": "Ocean Sunset View"},
-        {"number": "304", "room_type": "Sunset Vista", "floor": 3, "status": "available", "view_type": "Ocean Sunset View"},
-        {"number": "401", "room_type": "Sunset Vista", "floor": 4, "status": "occupied", "view_type": "Ocean Sunset View"},
-        {"number": "402", "room_type": "Sunset Vista", "floor": 4, "status": "available", "view_type": "Ocean Sunset View"},
-
-        # Pacific Suite (Floor 4-5)
-        {"number": "403", "room_type": "Pacific Suite", "floor": 4, "status": "available", "view_type": "Partial Ocean View"},
-        {"number": "501", "room_type": "Pacific Suite", "floor": 5, "status": "available", "view_type": "Partial Ocean View"},
-        {"number": "502", "room_type": "Pacific Suite", "floor": 5, "status": "occupied", "view_type": "Partial Ocean View"},
-
-        # Wellness Suite (Floor 5)
-        {"number": "503", "room_type": "Wellness Suite", "floor": 5, "status": "available", "view_type": "Ocean View"},
-        {"number": "504", "room_type": "Wellness Suite", "floor": 5, "status": "available", "view_type": "Ocean View"},
-
-        # Family Sanctuary (Floor 6)
-        {"number": "601", "room_type": "Family Sanctuary", "floor": 6, "status": "available", "view_type": "Garden & Partial Ocean View"},
-        {"number": "602", "room_type": "Family Sanctuary", "floor": 6, "status": "occupied", "view_type": "Garden & Partial Ocean View"},
-
-        # Oceanfront Penthouse (Floor 7)
-        {"number": "701", "room_type": "Oceanfront Penthouse", "floor": 7, "status": "available", "view_type": "Panoramic Ocean View"},
-        {"number": "702", "room_type": "Oceanfront Penthouse", "floor": 7, "status": "available", "view_type": "Panoramic Ocean View"},
+        # SUT - SUPERIOR TWIN (8 Rooms)
+        # Floor 1 (4 rooms)
+        {"number": "1003", "room_type": "Superior Twin", "floor": 1, "status": "available", "view_type": "City View"},
+        {"number": "1004", "room_type": "Superior Twin", "floor": 1, "status": "available", "view_type": "City View"},
+        {"number": "1005", "room_type": "Superior Twin", "floor": 1, "status": "occupied", "view_type": "City View"},
+        {"number": "1007", "room_type": "Superior Twin", "floor": 1, "status": "available", "view_type": "City View"},
+        # Floor 2 (4 rooms)
+        {"number": "2005", "room_type": "Superior Twin", "floor": 2, "status": "available", "view_type": "City View"},
+        {"number": "2006", "room_type": "Superior Twin", "floor": 2, "status": "available", "view_type": "City View"},
+        {"number": "2007", "room_type": "Superior Twin", "floor": 2, "status": "available", "view_type": "City View"},
+        {"number": "2008", "room_type": "Superior Twin", "floor": 2, "status": "available", "view_type": "City View"},
     ]
 
     now = datetime.utcnow().isoformat()
@@ -577,13 +463,13 @@ def seed_bookings(cursor):
             "booking_number": "BK-2024-001001",
             "confirmation_code": "GLM-001001",
             "guest_email": "sarah.anderson@email.com",
-            "room_number": "301",
+            "room_number": "3001",
             "arrival_date": today - timedelta(days=2),
             "departure_date": today + timedelta(days=1),
             "adults": 2, "children": 0,
             "status": "checked_in",
             "payment_status": "paid",
-            "total_price": 61000.00,
+            "total_price": 13497.00,
             "special_requests": "Late check-in requested",
             "booking_source": "direct"
         },
@@ -591,13 +477,13 @@ def seed_bookings(cursor):
             "booking_number": "BK-2024-001002",
             "confirmation_code": "GLM-001002",
             "guest_email": "james.mitchell@email.co.uk",
-            "room_number": "201",
+            "room_number": "2001",
             "arrival_date": today,
             "departure_date": today + timedelta(days=2),
             "adults": 1, "children": 0,
             "status": "confirmed",
             "payment_status": "pending",
-            "total_price": 31000.00,
+            "total_price": 8998.00,
             "special_requests": "High floor preferred",
             "booking_source": "ota"
         },
@@ -605,13 +491,13 @@ def seed_bookings(cursor):
             "booking_number": "BK-2024-001003",
             "confirmation_code": "GLM-001003",
             "guest_email": "maria.garcia@email.es",
-            "room_number": "401",
+            "room_number": "4001",
             "arrival_date": today - timedelta(days=1),
             "departure_date": today + timedelta(days=2),
             "adults": 2, "children": 0,
             "status": "checked_in",
             "payment_status": "paid",
-            "total_price": 78500.00,
+            "total_price": 13497.00,
             "special_requests": "Anniversary celebration",
             "booking_source": "direct"
         },
@@ -619,13 +505,13 @@ def seed_bookings(cursor):
             "booking_number": "BK-2024-001004",
             "confirmation_code": "GLM-001004",
             "guest_email": "h.tanaka@email.jp",
-            "room_number": "701",
+            "room_number": "1001",
             "arrival_date": today + timedelta(days=3),
             "departure_date": today + timedelta(days=8),
             "adults": 2, "children": 0,
             "status": "confirmed",
             "payment_status": "partial",
-            "total_price": 312500.00,
+            "total_price": 22495.00,
             "special_requests": "Executive client, complete privacy required",
             "booking_source": "direct"
         },
@@ -633,27 +519,27 @@ def seed_bookings(cursor):
             "booking_number": "BK-2024-001005",
             "confirmation_code": "GLM-001005",
             "guest_email": "emma.wilson@email.au",
-            "room_number": "601",
+            "room_number": "1005",
             "arrival_date": today - timedelta(days=3),
             "departure_date": today,
-            "adults": 2, "children": 2,
+            "adults": 2, "children": 1,
             "status": "checked_in",
             "payment_status": "paid",
-            "total_price": 120000.00,
-            "special_requests": "Family vacation, kid-friendly amenities",
+            "total_price": 8697.00,
+            "special_requests": "Family vacation, extra bed needed",
             "booking_source": "ota"
         },
         {
             "booking_number": "BK-2024-001006",
             "confirmation_code": "GLM-001006",
             "guest_email": "michael.brown@email.com",
-            "room_number": "502",
+            "room_number": "2004",
             "arrival_date": today - timedelta(days=1),
             "departure_date": today + timedelta(days=3),
             "adults": 2, "children": 0,
             "status": "checked_in",
             "payment_status": "paid",
-            "total_price": 128000.00,
+            "total_price": 11596.00,
             "special_requests": "Business trip",
             "booking_source": "direct"
         },
@@ -661,41 +547,41 @@ def seed_bookings(cursor):
             "booking_number": "BK-2024-001007",
             "confirmation_code": "GLM-001007",
             "guest_email": "sophie.dubois@email.fr",
-            "room_number": "303",
+            "room_number": "3003",
             "arrival_date": today + timedelta(days=5),
             "departure_date": today + timedelta(days=8),
             "adults": 2, "children": 0,
             "status": "confirmed",
             "payment_status": "pending",
-            "total_price": 78500.00,
-            "special_requests": "Wine tasting recommendation",
+            "total_price": 8697.00,
+            "special_requests": "Quiet room requested",
             "booking_source": "direct"
         },
         {
             "booking_number": "BK-2024-001008",
             "confirmation_code": "GLM-001008",
             "guest_email": "isabella.rossi@email.it",
-            "room_number": "503",
+            "room_number": "2008",
             "arrival_date": today + timedelta(days=7),
             "departure_date": today + timedelta(days=12),
             "adults": 1, "children": 0,
             "status": "confirmed",
             "payment_status": "partial",
-            "total_price": 176000.00,
-            "special_requests": "Wellness retreat, daily spa",
+            "total_price": 12495.00,
+            "special_requests": "Single occupancy",
             "booking_source": "direct"
         },
         {
             "booking_number": "BK-2024-001009",
             "confirmation_code": "GLM-001009",
             "guest_email": "william.johnson@email.com",
-            "room_number": "101",
+            "room_number": "1002",
             "arrival_date": today + timedelta(days=1),
             "departure_date": today + timedelta(days=3),
             "adults": 2, "children": 0,
             "status": "confirmed",
             "payment_status": "pending",
-            "total_price": 30000.00,
+            "total_price": 5798.00,
             "special_requests": "",
             "booking_source": "ota"
         },
@@ -703,13 +589,13 @@ def seed_bookings(cursor):
             "booking_number": "BK-2024-001010",
             "confirmation_code": "GLM-001010",
             "guest_email": "david.chen@email.cn",
-            "room_number": "103",
+            "room_number": "1003",
             "arrival_date": today - timedelta(days=1),
             "departure_date": today + timedelta(days=1),
             "adults": 1, "children": 0,
             "status": "checked_in",
             "payment_status": "paid",
-            "total_price": 30000.00,
+            "total_price": 4998.00,
             "special_requests": "",
             "booking_source": "direct"
         },
