@@ -1,0 +1,734 @@
+{
+    "most_frequently_asked": {
+        "Booking & Reservations": [
+            {
+                "question": "How do I make a reservation at your hotel?",
+                "answer": "You can book directly through our website, mobile app, or by calling our reservation desk. Third-party platforms like Booking.com and Expedia are also available."
+            },
+            {
+                "question": "What is the cancellation policy for my booking?",
+                "answer": "Our cancellation policy varies by rate type. Standard rates allow free cancellation up to 24-48 hours before arrival. Non-refundable rates may apply. Check your booking confirmation for details."
+            },
+            {
+                "question": "Can I modify my reservation after booking?",
+                "answer": "Yes, you can modify your reservation through our website, app, or by contacting our reservation team, subject to availability."
+            },
+            {
+                "question": "Do you offer group bookings for events or large parties?",
+                "answer": "Yes, we offer special rates and packages for groups (10+ rooms). Contact our events team for customized quotes."
+            },
+            {
+                "question": "Is there a minimum stay requirement during peak seasons?",
+                "answer": "Minimum stay requirements may apply during peak seasons or special events. Check the booking terms for your selected dates."
+            },
+            {
+                "question": "Do you offer long-stay or corporate rates?",
+                "answer": "Yes, we provide discounted rates for extended stays (7+ nights) and corporate travelers. Contact our sales team for details."
+            },
+            {
+                "question": "Can I book a specific room or floor?",
+                "answer": "We accommodate room preferences based on availability. Mention your request during booking or check-in."
+            },
+            {
+                "question": "What is the check-in and check-out time?",
+                "answer": "Standard check-in is 3:00 PM and check-out is 12:00 PM. Early check-in/late check-out may be available for a fee, subject to availability."
+            },
+            {
+                "question": "Do you offer early check-in or late check-out?",
+                "answer": "Yes, subject to availability. Fees may apply. Contact the front desk on the day of arrival/departure."
+            },
+            {
+                "question": "What forms of payment do you accept?",
+                "answer": "We accept credit/debit cards (Visa, Mastercard, Amex), cash (local currency), and digital wallets (PayPal, UPI, etc.)."
+            },
+            {
+                "question": "Is a deposit required to confirm my booking?",
+                "answer": "Some bookings may require a deposit or credit card guarantee, especially for special events or peak seasons. Check your booking confirmation."
+            },
+            {
+                "question": "Can I book a room for someone else?",
+                "answer": "Yes, you can book a room for another guest. Provide their details during booking, and ensure they present valid ID at check-in."
+            },
+            {
+                "question": "How can I get a confirmation of my booking?",
+                "answer": "A confirmation email is sent immediately after booking. You can also check your booking status on our website or app."
+            },
+            {
+                "question": "What should I do if I didn't receive my booking confirmation?",
+                "answer": "Check your spam folder or contact our reservation team. We can resend your confirmation email."
+            },
+            {
+                "question": "Can I cancel my booking online?",
+                "answer": "Yes, you can cancel your booking through our website or app, depending on the cancellation policy of your rate."
+            },
+            {
+                "question": "Do you offer any discounts for advance bookings?",
+                "answer": "Yes, we often have early bird discounts for bookings made in advance. Check our website for current promotions."
+            },
+            {
+                "question": "Can I pay for my booking in installments?",
+                "answer": "Installment payment options may be available for long stays or group bookings. Contact our reservation team for details."
+            },
+            {
+                "question": "What happens if I need to cancel due to an emergency?",
+                "answer": "In case of emergencies, contact our reservation team. We will do our best to accommodate your situation based on our policy."
+            },
+            {
+                "question": "Do you have a waiting list for fully booked dates?",
+                "answer": "Yes, we can add you to a waiting list for fully booked dates. Contact our reservation team for assistance."
+            },
+            {
+                "question": "Can I get a refund if I cancel my booking?",
+                "answer": "Refund eligibility depends on the cancellation policy of your booking. Check your confirmation email for details."
+            },
+            {
+                "question": "How can I contact the reservation team for assistance?",
+                "answer": "You can reach our reservation team via phone, email, or live chat on our website."
+            },
+            {
+                "question": "Do you offer any packages that include meals or activities?",
+                "answer": "Yes, we offer various packages that include meals, spa treatments, or local activities. Check our website for current offers."
+            },
+            {
+                "question": "Can I book a room without a credit card?",
+                "answer": "Some bookings may require a credit card guarantee. Contact our reservation team for alternative payment options."
+            },
+            {
+                "question": "What is the maximum number of guests allowed per room?",
+                "answer": "The maximum occupancy varies by room type. Check the room details during booking or contact our reservation team."
+            },
+            {
+                "question": "Do you offer any loyalty or membership discounts?",
+                "answer": "Yes, members of our loyalty program receive exclusive discounts and perks. Sign up on our website."
+            },
+            {
+                "question": "Can I book a room for a few hours instead of a full night?",
+                "answer": "We typically require a full-night booking, but day-use rates may be available. Contact our reservation team for details."
+            },
+            {
+                "question": "Do you have any special offers for honeymooners or anniversaries?",
+                "answer": "Yes, we offer romantic packages for special occasions. Contact our reservation team for details."
+            },
+            {
+                "question": "Can I request a room with specific features, like a bathtub or balcony?",
+                "answer": "Yes, you can request specific room features during booking, subject to availability."
+            },
+            {
+                "question": "What is the latest time I can check in?",
+                "answer": "Our front desk is open 24/7, so you can check in at any time. For late arrivals, inform us in advance."
+            },
+            {
+                "question": "Can I check in online to save time?",
+                "answer": "Yes, we offer mobile check-in via our app or website. Skip the front desk and head straight to your room using a digital key."
+            },
+            {
+                "question": "What do I need to bring for check-in?",
+                "answer": "A valid government-issued ID and the credit card used for booking (if applicable)."
+            },
+            {
+                "question": "Can I check in before the standard check-in time?",
+                "answer": "Early check-in is subject to availability and may incur additional charges. Request it at the front desk."
+            },
+            {
+                "question": "What if I arrive after the front desk closes?",
+                "answer": "Our front desk is open 24/7. For late arrivals, inform us in advance, and we\u2019ll ensure a smooth check-in process."
+            },
+            {
+                "question": "Can I request a late check-out?",
+                "answer": "Late check-out is subject to availability and may incur additional charges. Request it at the front desk the day before departure."
+            },
+            {
+                "question": "What happens if I lose my room key?",
+                "answer": "Report lost keys immediately to the front desk. We\u2019ll deactivate the old key and issue a new one (a fee may apply)."
+            },
+            {
+                "question": "Can I store my luggage before check-in or after check-out?",
+                "answer": "Yes, we offer complimentary luggage storage for guests before check-in and after check-out."
+            },
+            {
+                "question": "Do you offer express check-out?",
+                "answer": "Yes, you can opt for express check-out via our app or by settling your bill the night before departure."
+            },
+            {
+                "question": "What types of rooms do you offer?",
+                "answer": "We offer Standard Rooms, Deluxe Rooms, Suites, Family Rooms, and Accessible Rooms. Visit our website for detailed descriptions."
+            },
+            {
+                "question": "Are your rooms soundproof?",
+                "answer": "Our rooms are designed for maximum comfort with soundproof windows and doors."
+            },
+            {
+                "question": "Do you provide cribs or extra beds?",
+                "answer": "Yes, cribs (for infants) and extra beds (for children/adults) are available on request. Fees may apply."
+            },
+            {
+                "question": "What amenities are included in the room?",
+                "answer": "All rooms include Wi-Fi, flat-screen TV, minibar, coffee/tea maker, safe, hairdryer, and toiletries. Suites offer additional luxuries."
+            },
+            {
+                "question": "Is there a minibar in the room?",
+                "answer": "Yes, all rooms have a minibar with snacks and beverages (charges apply)."
+            },
+            {
+                "question": "Do you offer room service?",
+                "answer": "Yes, 24/7 room service is available. View the menu in your room or via our app."
+            },
+            {
+                "question": "How often is housekeeping provided?",
+                "answer": "Daily housekeeping is standard. You can request additional service or opt for reduced service during your stay."
+            },
+            {
+                "question": "Are pets allowed in the rooms?",
+                "answer": "We are a pet-friendly hotel. Pets are allowed in designated rooms (fees and restrictions apply)."
+            },
+            {
+                "question": "Do you have accessible rooms?",
+                "answer": "Yes, we offer ADA-compliant accessible rooms with features like roll-in showers, grab bars, and wider doorways."
+            },
+            {
+                "question": "Can I request a room with a view?",
+                "answer": "We offer city view, ocean view, and pool view rooms (subject to availability)."
+            },
+            {
+                "question": "Is smoking allowed in the rooms?",
+                "answer": "No, all our rooms and public areas are non-smoking. Designated smoking areas are available outdoors."
+            },
+            {
+                "question": "What dining options are available on-site?",
+                "answer": "We have a fine-dining restaurant, caf\u00e9, poolside bar, and 24/7 room service. Visit our website for menus and hours."
+            },
+            {
+                "question": "Do you offer breakfast?",
+                "answer": "Yes, we serve a complimentary/buffet breakfast daily. Timings and inclusions vary by package."
+            },
+            {
+                "question": "Are there vegan/vegetarian/gluten-free options?",
+                "answer": "Yes, our menus include vegan, vegetarian, gluten-free, and allergy-friendly options."
+            },
+            {
+                "question": "Can I request a special meal (e.g., birthday cake)?",
+                "answer": "Yes! Contact our dining team at least 24 hours in advance for special requests."
+            },
+            {
+                "question": "Do you have a kids\u2019 menu?",
+                "answer": "Yes, our restaurant offers a dedicated kids\u2019 menu with healthy and fun options."
+            },
+            {
+                "question": "Is outside food allowed in the hotel?",
+                "answer": "Outside food is allowed in guest rooms but not in restaurants or public dining areas."
+            },
+            {
+                "question": "Do you offer cooking facilities?",
+                "answer": "Suites and extended-stay rooms include kitchenettes or microwaves. Standard rooms do not."
+            },
+            {
+                "question": "Can I order groceries or snacks to my room?",
+                "answer": "Yes, we can arrange grocery delivery or provide snacks from our minibar/room service."
+            },
+            {
+                "question": "What forms of payment do you accept?",
+                "answer": "We accept credit/debit cards (Visa, Mastercard, Amex), cash (local currency), and digital wallets (PayPal, UPI, etc.)."
+            },
+            {
+                "question": "Can I get an itemized bill?",
+                "answer": "Yes, request an itemized bill at check-out or via email post-stay."
+            },
+            {
+                "question": "Do you charge a resort fee?",
+                "answer": "A resort fee covers Wi-Fi, gym access, and local calls. It\u2019s included in your total bill."
+            },
+            {
+                "question": "What is your policy on disputes or billing errors?",
+                "answer": "Report any billing discrepancies to the front desk or accounts team within 7 days of check-out."
+            },
+            {
+                "question": "How can I leave feedback about my stay?",
+                "answer": "Share feedback via our post-stay email survey, website, or apps like TripAdvisor/Google Reviews."
+            },
+            {
+                "question": "Do you offer loyalty or rewards programs?",
+                "answer": "Yes, join our loyalty program to earn points, discounts, and exclusive perks."
+            }
+        ],
+        "Check-in & Check-out": [
+            {
+                "question": "What is the check-in and check-out time?",
+                "answer": "Standard check-in is 3:00 PM and check-out is 12:00 PM. Early check-in/late check-out may be available for a fee, subject to availability."
+            },
+            {
+                "question": "Can I check in online?",
+                "answer": "Yes, we offer mobile check-in via our app or website. Skip the front desk and head straight to your room using a digital key."
+            },
+            {
+                "question": "What do I need to bring for check-in?",
+                "answer": "A valid government-issued ID and the credit card used for booking (if applicable)."
+            },
+            {
+                "question": "Can I check in before the standard check-in time?",
+                "answer": "Early check-in is subject to availability and may incur additional charges. Request it at the front desk."
+            },
+            {
+                "question": "What if I arrive after the front desk closes?",
+                "answer": "Our front desk is open 24/7. For late arrivals, inform us in advance, and we\u2019ll ensure a smooth check-in process."
+            },
+            {
+                "question": "Can I request a late check-out?",
+                "answer": "Late check-out is subject to availability and may incur additional charges. Request it at the front desk the day before departure."
+            },
+            {
+                "question": "What happens if I lose my room key?",
+                "answer": "Report lost keys immediately to the front desk. We\u2019ll deactivate the old key and issue a new one (a fee may apply)."
+            },
+            {
+                "question": "Can I store my luggage before check-in or after check-out?",
+                "answer": "Yes, we offer complimentary luggage storage for guests before check-in and after check-out."
+            },
+            {
+                "question": "Do you offer express check-out?",
+                "answer": "Yes, you can opt for express check-out via our app or by settling your bill the night before departure."
+            },
+            {
+                "question": "What is the latest time I can check in?",
+                "answer": "Our front desk is open 24/7, so you can check in at any time. For late arrivals, inform us in advance."
+            }
+        ],
+        "Rooms & Amenities": [
+            {
+                "question": "What types of rooms do you offer?",
+                "answer": "We offer Standard Rooms, Deluxe Rooms, Suites, Family Rooms, and Accessible Rooms. Visit our website for detailed descriptions."
+            },
+            {
+                "question": "Are your rooms soundproof?",
+                "answer": "Our rooms are designed for maximum comfort with soundproof windows and doors."
+            },
+            {
+                "question": "Do you provide cribs or extra beds?",
+                "answer": "Yes, cribs (for infants) and extra beds (for children/adults) are available on request. Fees may apply."
+            },
+            {
+                "question": "What amenities are included in the room?",
+                "answer": "All rooms include Wi-Fi, flat-screen TV, minibar, coffee/tea maker, safe, hairdryer, and toiletries. Suites offer additional luxuries."
+            },
+            {
+                "question": "Is there a minibar in the room?",
+                "answer": "Yes, all rooms have a minibar with snacks and beverages (charges apply)."
+            },
+            {
+                "question": "Do you offer room service?",
+                "answer": "Yes, 24/7 room service is available. View the menu in your room or via our app."
+            },
+            {
+                "question": "How often is housekeeping provided?",
+                "answer": "Daily housekeeping is standard. You can request additional service or opt for reduced service during your stay."
+            },
+            {
+                "question": "Are pets allowed in the rooms?",
+                "answer": "We are a pet-friendly hotel. Pets are allowed in designated rooms (fees and restrictions apply)."
+            },
+            {
+                "question": "Do you have accessible rooms?",
+                "answer": "Yes, we offer ADA-compliant accessible rooms with features like roll-in showers, grab bars, and wider doorways."
+            },
+            {
+                "question": "Can I request a room with a view?",
+                "answer": "We offer city view, ocean view, and pool view rooms (subject to availability)."
+            },
+            {
+                "question": "Is smoking allowed in the rooms?",
+                "answer": "No, all our rooms and public areas are non-smoking. Designated smoking areas are available outdoors."
+            },
+            {
+                "question": "Is Wi-Fi available in the rooms?",
+                "answer": "Yes, complimentary high-speed Wi-Fi is available in all rooms."
+            },
+            {
+                "question": "How do I connect to the Wi-Fi?",
+                "answer": "Select the hotel Wi-Fi network from your device and enter the password provided at check-in."
+            },
+            {
+                "question": "Do you provide toiletries in the room?",
+                "answer": "Yes, we provide complimentary toiletries, including shampoo, conditioner, body wash, and soap."
+            },
+            {
+                "question": "Can I request additional pillows or blankets?",
+                "answer": "Yes, contact the front desk or housekeeping for additional pillows, blankets, or other amenities."
+            },
+            {
+                "question": "Is there a safe in the room?",
+                "answer": "Yes, all rooms are equipped with an in-room safe for your valuables."
+            },
+            {
+                "question": "Do you offer turndown service?",
+                "answer": "Yes, turndown service is available upon request. Contact housekeeping for details."
+            },
+            {
+                "question": "Can I request a room with specific features, like a bathtub or balcony?",
+                "answer": "Yes, you can request specific room features during booking, subject to availability."
+            },
+            {
+                "question": "Do you provide irons and ironing boards in the rooms?",
+                "answer": "Yes, irons and ironing boards are available in all rooms or can be requested from housekeeping."
+            },
+            {
+                "question": "Is there a hairdryer in the room?",
+                "answer": "Yes, all rooms are equipped with a hairdryer."
+            },
+            {
+                "question": "Can I request a room on a higher floor?",
+                "answer": "Yes, you can request a room on a higher floor during booking or check-in, subject to availability."
+            }
+        ],
+        "Dining & Beverages": [
+            {
+                "question": "What dining options are available on-site?",
+                "answer": "We have a fine-dining restaurant, caf\u00e9, poolside bar, and 24/7 room service. Visit our website for menus and hours."
+            },
+            {
+                "question": "Do you offer breakfast?",
+                "answer": "Yes, we serve a complimentary/buffet breakfast daily. Timings and inclusions vary by package."
+            },
+            {
+                "question": "Are there vegan/vegetarian/gluten-free options?",
+                "answer": "Yes, our menus include vegan, vegetarian, gluten-free, and allergy-friendly options."
+            },
+            {
+                "question": "Can I request a special meal (e.g., birthday cake)?",
+                "answer": "Yes! Contact our dining team at least 24 hours in advance for special requests."
+            },
+            {
+                "question": "Do you have a kids\u2019 menu?",
+                "answer": "Yes, our restaurant offers a dedicated kids\u2019 menu with healthy and fun options."
+            },
+            {
+                "question": "Is outside food allowed in the hotel?",
+                "answer": "Outside food is allowed in guest rooms but not in restaurants or public dining areas."
+            },
+            {
+                "question": "Do you offer cooking facilities?",
+                "answer": "Suites and extended-stay rooms include kitchenettes or microwaves. Standard rooms do not."
+            },
+            {
+                "question": "Can I order groceries or snacks to my room?",
+                "answer": "Yes, we can arrange grocery delivery or provide snacks from our minibar/room service."
+            },
+            {
+                "question": "What are the operating hours of the restaurant?",
+                "answer": "Our restaurant is open from [X] AM to [Y] PM daily. Room service is available 24/7."
+            },
+            {
+                "question": "Do you offer in-room dining for dietary restrictions?",
+                "answer": "Yes, inform our room service team of any dietary restrictions when placing your order."
+            },
+            {
+                "question": "Can I make a reservation at the restaurant?",
+                "answer": "Yes, you can make a reservation through our website, app, or by contacting the restaurant directly."
+            },
+            {
+                "question": "Is there a dress code for the restaurant?",
+                "answer": "Our restaurant has a smart casual dress code. Avoid beachwear or sports attire."
+            },
+            {
+                "question": "Do you offer room service during late hours?",
+                "answer": "Yes, room service is available 24/7."
+            },
+            {
+                "question": "Can I request a specific chef or cuisine for a private event?",
+                "answer": "Yes, contact our events team to discuss customized dining options for private events."
+            },
+            {
+                "question": "Are there any happy hour specials at the bar?",
+                "answer": "Yes, our poolside bar offers happy hour specials from [X] PM to [Y] PM daily."
+            },
+            {
+                "question": "Do you provide high chairs for children in the restaurant?",
+                "answer": "Yes, high chairs are available upon request in our restaurant."
+            },
+            {
+                "question": "Can I bring my own wine or alcohol to the restaurant?",
+                "answer": "Outside alcohol is not permitted in the restaurant. Corkage fees may apply for special occasions."
+            },
+            {
+                "question": "Do you offer catering services for events?",
+                "answer": "Yes, we provide catering services for events. Contact our events team for menus and pricing."
+            },
+            {
+                "question": "Is there a coffee shop or caf\u00e9 on-site?",
+                "answer": "Yes, our caf\u00e9 serves coffee, pastries, and light meals from [X] AM to [Y] PM."
+            }
+        ],
+        "Payments & Policies": [
+            {
+                "question": "What forms of payment do you accept?",
+                "answer": "We accept credit/debit cards (Visa, Mastercard, Amex), cash (local currency), and digital wallets (PayPal, UPI, etc.)."
+            },
+            {
+                "question": "Can I get an itemized bill?",
+                "answer": "Yes, request an itemized bill at check-out or via email post-stay."
+            },
+            {
+                "question": "Do you charge a resort fee?",
+                "answer": "A resort fee covers Wi-Fi, gym access, and local calls. It\u2019s included in your total bill."
+            },
+            {
+                "question": "What is your policy on disputes or billing errors?",
+                "answer": "Report any billing discrepancies to the front desk or accounts team within 7 days of check-out."
+            },
+            {
+                "question": "How can I leave feedback about my stay?",
+                "answer": "Share feedback via our post-stay email survey, website, or apps like TripAdvisor/Google Reviews."
+            },
+            {
+                "question": "Do you offer loyalty or rewards programs?",
+                "answer": "Yes, join our loyalty program to earn points, discounts, and exclusive perks."
+            },
+            {
+                "question": "Is there a deposit required for incidentals?",
+                "answer": "A deposit or credit card hold may be required at check-in for incidentals."
+            },
+            {
+                "question": "What is your policy on refunds?",
+                "answer": "Refunds are processed according to the cancellation policy of your booking. Check your confirmation email for details."
+            },
+            {
+                "question": "Do you accept foreign currency?",
+                "answer": "We accept major foreign currencies, but the exchange rate will apply. Local currency is preferred."
+            },
+            {
+                "question": "Can I split my bill among multiple payment methods?",
+                "answer": "Yes, you can split your bill among multiple payment methods at check-out."
+            },
+            {
+                "question": "Do you charge for early departure?",
+                "answer": "Early departure fees may apply depending on your booking terms. Check your confirmation email for details."
+            },
+            {
+                "question": "Is there a fee for additional guests in the room?",
+                "answer": "Fees for additional guests may apply. Check the room details during booking or contact the front desk."
+            },
+            {
+                "question": "Do you offer corporate billing options?",
+                "answer": "Yes, we offer corporate billing options for business travelers. Contact our accounts team for details."
+            },
+            {
+                "question": "What taxes and fees are included in my bill?",
+                "answer": "Your bill includes room charges, taxes, resort fees, and any additional services used during your stay."
+            },
+            {
+                "question": "Can I get a receipt for my expenses?",
+                "answer": "Yes, you can request a receipt at check-out or via email post-stay."
+            }
+        ]
+    },
+    "medium_to_low_asked": {
+        "Hotel Services": [
+            {
+                "question": "Do you have a fitness center?",
+                "answer": "Yes, our 24/7 fitness center is equipped with cardio machines, weights, and yoga mats."
+            },
+            {
+                "question": "Is there a swimming pool?",
+                "answer": "Yes, we have an outdoor/indoor pool (seasonal). Pool towels and loungers are provided."
+            },
+            {
+                "question": "Do you offer spa services?",
+                "answer": "Our onsite spa offers massages, facials, and wellness treatments. Book in advance via our app or front desk."
+            },
+            {
+                "question": "Is there a business center?",
+                "answer": "Yes, our business center provides printing, scanning, and meeting facilities. Open 24/7 for guests."
+            },
+            {
+                "question": "Do you have meeting/event spaces?",
+                "answer": "Yes, we offer conference rooms, banquet halls, and outdoor event spaces. Contact our events team for bookings."
+            },
+            {
+                "question": "Is parking available?",
+                "answer": "Yes, we provide valet parking and self-parking (fees may apply). EV charging stations are also available."
+            },
+            {
+                "question": "Do you offer laundry services?",
+                "answer": "Yes, we provide same-day laundry and dry-cleaning services (fees apply)."
+            },
+            {
+                "question": "Is there a concierge service?",
+                "answer": "Yes, our concierge can assist with reservations, tickets, transportation, and local recommendations."
+            },
+            {
+                "question": "Do you have a gift shop?",
+                "answer": "Yes, our gift shop sells travel essentials, souvenirs, and snacks."
+            },
+            {
+                "question": "Can I rent a car or bicycle?",
+                "answer": "Yes, we partner with local rental services for cars, bicycles, and scooters. Ask our concierge for assistance."
+            }
+        ],
+        "Local Guide & Attractions": [
+            {
+                "question": "What are the must-see attractions near the hotel?",
+                "answer": "Popular nearby attractions include [Local Landmark 1], [Museum Name], and [Park Name]. Ask our concierge for personalized recommendations."
+            },
+            {
+                "question": "How far is the hotel from the airport?",
+                "answer": "We are [X] km/miles from [Airport Name]. Airport shuttle services are available (fees apply)."
+            },
+            {
+                "question": "Do you provide airport transfers?",
+                "answer": "Yes, we offer airport pickup/drop-off for a fee. Book in advance via our website or concierge."
+            },
+            {
+                "question": "What public transportation options are nearby?",
+                "answer": "The nearest metro station/bus stop is [Name], a [X]-minute walk from the hotel."
+            },
+            {
+                "question": "Can you arrange local tours or excursions?",
+                "answer": "Yes, our concierge can book city tours, day trips, and adventure activities. Ask for recommendations!"
+            },
+            {
+                "question": "Are there any shopping malls or markets nearby?",
+                "answer": "[Mall/Market Name] is a [X]-minute drive from the hotel. Our concierge can arrange transportation."
+            },
+            {
+                "question": "What are the best restaurants nearby?",
+                "answer": "Nearby dining options include [Restaurant 1], [Restaurant 2], and [Local Specialty Spot]."
+            },
+            {
+                "question": "Is the hotel located in a safe area?",
+                "answer": "Yes, our hotel is in a safe, well-patrolled area. We also provide 24/7 security for guests."
+            },
+            {
+                "question": "Can you recommend family-friendly activities?",
+                "answer": "Yes! Nearby options include [Amusement Park], [Zoo/Aquarium], and [Interactive Museum]."
+            },
+            {
+                "question": "Are there any parks or outdoor activities nearby?",
+                "answer": "Yes, [Park Name] and [Outdoor Activity] are popular options nearby."
+            }
+        ],
+        "Special Requests & Accessibility": [
+            {
+                "question": "Can you arrange a surprise (e.g., flowers, champagne) for a special occasion?",
+                "answer": "Absolutely! Contact our concierge at least 24 hours in advance to arrange surprises."
+            },
+            {
+                "question": "Do you host weddings or private events?",
+                "answer": "Yes, we offer wedding packages and event spaces. Contact our events team for details."
+            },
+            {
+                "question": "Can I bring my own alcohol to the hotel?",
+                "answer": "Outside alcohol is not permitted in public areas but may be consumed in your room (corkage fees may apply)."
+            },
+            {
+                "question": "Do you have a loyalty program for frequent guests?",
+                "answer": "Yes, join our loyalty program to earn points, discounts, and exclusive benefits. Sign up on our website."
+            },
+            {
+                "question": "What should I do if I forget something in the room after check-out?",
+                "answer": "Contact the front desk immediately. We\u2019ll check lost-and-found and arrange to return your items (shipping fees may apply)."
+            },
+            {
+                "question": "Can I extend my stay after check-in?",
+                "answer": "Yes, subject to availability. Contact the front desk to extend your stay."
+            },
+            {
+                "question": "Do you offer accessible rooms for guests with disabilities?",
+                "answer": "Yes, we offer ADA-compliant accessible rooms with features like roll-in showers, grab bars, and wider doorways."
+            },
+            {
+                "question": "Are there any special services for guests with children?",
+                "answer": "Yes, we offer cribs, kids\u2019 menus, and family-friendly activities. Contact our concierge for details."
+            },
+            {
+                "question": "Do you provide baby-sitting services?",
+                "answer": "Yes, we can arrange baby-sitting services through trusted local agencies. Contact our concierge for details."
+            },
+            {
+                "question": "Can I request a room with specific accessibility features?",
+                "answer": "Yes, inform us of your specific needs during booking, and we\u2019ll accommodate them based on availability."
+            }
+        ],
+        "Safety & Security": [
+            {
+                "question": "What safety measures are in place at the hotel?",
+                "answer": "We have 24/7 security, CCTV, fire alarms, and trained staff for emergencies."
+            },
+            {
+                "question": "Do you have a doctor or medical assistance on call?",
+                "answer": "Yes, we can arrange for a doctor-on-call or assist with nearby hospitals/clinics."
+            },
+            {
+                "question": "Are there first-aid kits available?",
+                "answer": "Yes, first-aid kits are available at the front desk and in public areas."
+            },
+            {
+                "question": "What is your policy on COVID-19 or other health concerns?",
+                "answer": "We follow local health guidelines, including sanitization, mask policies, and contactless services."
+            },
+            {
+                "question": "Do you have wheelchair-accessible facilities?",
+                "answer": "Yes, our hotel is wheelchair-accessible, with ramps, elevators, and accessible rooms."
+            },
+            {
+                "question": "Is there a lost-and-found service?",
+                "answer": "Yes, report lost items to the front desk. We store found items for [X] days."
+            },
+            {
+                "question": "What should I do in case of an emergency?",
+                "answer": "Dial [emergency number] from your room phone or contact the front desk immediately."
+            },
+            {
+                "question": "Are there security cameras in public areas?",
+                "answer": "Yes, we have CCTV cameras in public areas for the safety and security of our guests."
+            },
+            {
+                "question": "Do you have a safe deposit box at the front desk?",
+                "answer": "Yes, we offer safe deposit boxes at the front desk for your valuables."
+            },
+            {
+                "question": "Is the hotel located in a safe neighborhood?",
+                "answer": "Yes, our hotel is located in a safe and well-patrolled neighborhood."
+            }
+        ],
+        "Events & Business": [
+            {
+                "question": "Do you have meeting rooms available for business events?",
+                "answer": "Yes, we offer conference rooms, banquet halls, and outdoor event spaces. Contact our events team for bookings."
+            },
+            {
+                "question": "Can you arrange AV equipment for my meeting?",
+                "answer": "Yes, we provide AV equipment for meetings and events. Contact our events team for details."
+            },
+            {
+                "question": "Do you offer catering services for business meetings?",
+                "answer": "Yes, we provide catering services for business meetings. Contact our events team for menus and pricing."
+            },
+            {
+                "question": "Is there a business center with printing and scanning facilities?",
+                "answer": "Yes, our business center provides printing, scanning, and meeting facilities. Open 24/7 for guests."
+            },
+            {
+                "question": "Can you arrange transportation for corporate guests?",
+                "answer": "Yes, we can arrange airport transfers and local transportation for corporate guests. Contact our concierge for details."
+            },
+            {
+                "question": "Do you have high-speed internet for business travelers?",
+                "answer": "Yes, we offer complimentary high-speed Wi-Fi throughout the hotel."
+            },
+            {
+                "question": "Can I host a corporate retreat at your hotel?",
+                "answer": "Yes, we offer packages for corporate retreats. Contact our events team for details."
+            },
+            {
+                "question": "Do you provide secretarial services for business meetings?",
+                "answer": "Yes, we can arrange secretarial services for business meetings. Contact our events team for details."
+            },
+            {
+                "question": "Is there a quiet workspace available for business travelers?",
+                "answer": "Yes, our business center and lobby lounge offer quiet workspaces for business travelers."
+            },
+            {
+                "question": "Can you assist with organizing team-building activities?",
+                "answer": "Yes, our events team can assist with organizing team-building activities. Contact them for details."
+            }
+        ]
+    }
+}

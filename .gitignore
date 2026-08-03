@@ -1,0 +1,100 @@
+# Python
+__pycache__/
+*/__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# Database
+# *.db
+# *.db-journal
+# *.sqlite
+# *.sqlite3
+# *.db.backup*
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# mypy
+.mypy_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Uploads (if any)
+uploads/
+static/uploads/
+
+# Claude Code configuration
+.claude/
+
+# Binary output files
+*.txt.bin
+integration_test_output.txt
+sse_verification_output.txt
+
+# Debug/scratch scripts and output (developer artifacts)
+check_*.py
+find_*.py
+search_*.py
+list_tables.py
+create_test_booking.py
+deep_cleanup_dups.py
+test_api_*.py
+test_room_mapping_fix.py
+*_output.txt
+*_output_2.txt
+*_output_3.txt
+booking_import.json
+dummy_cm_docs*.txt
+*.docx
+
+# Env example files in subprojects
+dummy_channel_manager/.env*
