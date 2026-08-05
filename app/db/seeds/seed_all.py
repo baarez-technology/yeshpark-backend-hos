@@ -46,7 +46,6 @@ async def _run_all_seeds(session: AsyncSession, property_id: int) -> dict:
     stats = {
         "crm_extended": {},
         "rms": {},
-        "channel_manager": {},
         "promotions": {},
         "rbac": {},
     }
@@ -95,19 +94,6 @@ async def _run_all_seeds(session: AsyncSession, property_id: int) -> dict:
     except Exception as e:
         print(f"      ERROR: {str(e)}")
         stats["rms"] = {"error": str(e)}
-
-    # 4. Channel Manager
-    print("\n[4/5] Seeding Channel Manager (OTAs, Mappings, Restrictions)...")
-    try:
-        from app.db.seeds.seed_channel_manager import seed_channel_manager_data
-        stats["channel_manager"] = await seed_channel_manager_data(session, property_id)
-        print("      Channel Manager seeding complete!")
-    except ImportError:
-        print("      WARNING: seed_channel_manager.py not found, skipping...")
-        stats["channel_manager"] = {"skipped": True}
-    except Exception as e:
-        print(f"      ERROR: {str(e)}")
-        stats["channel_manager"] = {"error": str(e)}
 
     # 5. Promotions
     print("\n[5/5] Seeding Promotions (Campaigns, Blackout Dates, Analytics)...")
@@ -183,7 +169,6 @@ async def _clear_all_seeds(session: AsyncSession, property_id: int) -> dict:
     # Clear in reverse order of dependencies
     modules = [
         ("promotions", "seed_promotions", "clear_promotions_data"),
-        ("channel_manager", "seed_channel_manager", "clear_channel_manager_data"),
         ("rms", "seed_rms", "clear_rms_data"),
         ("crm_extended", "seed_crm_extended", "clear_crm_extended_data"),
         ("rbac", "seed_rbac", "clear_rbac_data"),

@@ -17,9 +17,6 @@ from app.models.inventory import (
     RoomType, Room, RatePlan, DailyAvailability, DailyRate,
     InventorySyncQueue, PromoCode, RoomBlock
 )
-from app.models.channel_manager import (
-    OTAConnection as OTAChannel, OTARoomMapping, SyncLog as OTASyncLog
-)
 from app.models.user import User
 
 router = APIRouter()

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from app.api.v1 import auth, reservations, availability, housekeeping, frontdesk, rates, helpdesk, reports, dashboards, rooms, bookings, precheckin, users, guests, staff, room_types, payment_methods, admin, otp, guest_ai, guest_assistant, agi_assistant, runner, maintenance, notifications, feedback, admin_ai, analytics, revenue_intelligence, reputation, crm_ai, crm_ai_extended, overbooking, guest_chat, inventory, webhooks, channel_manager, attendance, folio, rbac, hotel_config, tax, corporate, ar, preauth, transaction_codes, audit_log, cashier_session, room_moves, paymaster, pos_closure, audit_pack, multi_room
+from app.api.v1 import auth, reservations, availability, housekeeping, frontdesk, rates, helpdesk, reports, dashboards, rooms, bookings, precheckin, users, guests, staff, room_types, payment_methods, admin, otp, guest_ai, guest_assistant, agi_assistant, runner, maintenance, notifications, feedback, admin_ai, analytics, revenue_intelligence, reputation, crm_ai, crm_ai_extended, overbooking, guest_chat, inventory, attendance, folio, rbac, hotel_config, tax, corporate, ar, preauth, transaction_codes, audit_log, cashier_session, room_moves, paymaster, pos_closure, audit_pack, multi_room
 from app.api.v1 import reputation_alerts, reputation_automation, reputation_categories, reputation_templates
 
 api_router = APIRouter()
@@ -43,8 +43,6 @@ api_router.include_router(crm_ai_extended.router, prefix="/v1/crm-ai", tags=["cr
 api_router.include_router(overbooking.router, prefix="/v1/overbooking", tags=["overbooking"])
 api_router.include_router(guest_chat.router, prefix="/v1/guest-chat", tags=["guest-chat"])
 api_router.include_router(inventory.router, prefix="/v1/inventory", tags=["inventory"])
-api_router.include_router(webhooks.router, prefix="/v1/webhooks", tags=["webhooks"])
-api_router.include_router(channel_manager.router, prefix="/v1/channel-manager", tags=["channel-manager"])
 api_router.include_router(attendance.router, prefix="/v1/attendance", tags=["attendance"])
 api_router.include_router(folio.router, prefix="/v1/bookings", tags=["folio"])
 api_router.include_router(rbac.router, prefix="/v1/rbac", tags=["rbac"])

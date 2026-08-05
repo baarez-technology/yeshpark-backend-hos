@@ -228,17 +228,6 @@ from app.models.dashboards import (
     DashboardLayout
 )
 
-# Channel Manager
-from app.models.channel_manager import (
-    OTAConnection,
-    OTARoomMapping,
-    OTARateMapping,
-    RateOverride,
-    ChannelRestriction,
-    AvailabilityGrid,
-    SyncLog
-)
-
 # Revenue Management System (RMS)
 from app.models.rms import (
     PricingRule,
@@ -464,15 +453,6 @@ __all__ = [
     # Dashboards
     "DashboardWidget",
     "DashboardLayout",
-
-    # Channel Manager
-    "OTAConnection",
-    "OTARoomMapping",
-    "OTARateMapping",
-    "RateOverride",
-    "ChannelRestriction",
-    "AvailabilityGrid",
-    "SyncLog",
 
     # Revenue Management System (RMS)
     "PricingRule",
