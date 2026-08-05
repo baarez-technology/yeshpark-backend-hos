@@ -105,10 +105,18 @@ async def create_room_move(
     if getattr(booking, 'do_not_move', False):
         raise HTTPException(400, "This booking is marked 'Do Not Move'")
 
-    # Validate target room exists
+    # Validate target room exists and is clean
     to_room = await session.get(Room, payload.to_room_id)
     if not to_room:
         raise HTTPException(404, "Target room not found")
+    
+    target_status = (to_room.status or "").lower()
+    target_cleaning = (getattr(to_room, 'cleaning_status', '') or target_status).lower()
+    if target_status == "dirty" or target_cleaning in ["dirty", "in_progress"]:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Target room {to_room.number} is dirty and cannot be assigned for a room move until cleaned."
+        )
 
     parsed_date = date.fromisoformat(payload.scheduled_date)
     move = ScheduledRoomMove(
@@ -150,9 +158,17 @@ async def execute_room_move(
     if not to_room:
         raise HTTPException(404, "Target room not found")
 
-    # Check target room availability
+    # Check target room availability and cleanliness
     if getattr(to_room, 'occupancy_status', 'vacant') == 'occupied':
         raise HTTPException(400, f"Room {to_room.number} is currently occupied")
+
+    exec_status = (to_room.status or "").lower()
+    exec_cleaning = (getattr(to_room, 'cleaning_status', '') or exec_status).lower()
+    if exec_status == "dirty" or exec_cleaning in ["dirty", "in_progress"]:
+        raise HTTPException(
+            status_code=400,
+            detail=f"Target room {to_room.number} is dirty and must be cleaned before executing room move."
+        )
 
     from_room = await session.get(Room, move.from_room_id)
 
