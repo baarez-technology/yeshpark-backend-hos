@@ -26,6 +26,44 @@ def _utc_iso(dt: Optional[datetime]) -> Optional[str]:
     return dt.isoformat()
 
 
+# Task types arrive from several UIs with different spellings. Everything that
+# is not an inspection is cleaning work that leaves the room clean when done.
+INSPECTION_TASK_TYPES = {"inspect", "inspection"}
+CLEANING_TASK_TYPES = {
+    "clean", "cleaning", "turndown", "mid_stay", "midstay",
+    "deep_clean", "deep_cleaning", "checkout_clean",
+}
+
+
+def _is_inspection_task(task_type: Optional[str]) -> bool:
+    """True for inspection tasks, which verify an already-clean room."""
+    return (task_type or "").strip().lower() in INSPECTION_TASK_TYPES
+
+
+def _is_cleaning_task(task_type: Optional[str]) -> bool:
+    """True for task types that involve physically servicing the room.
+
+    Anything unrecognised is treated as cleaning — the safe default, since it
+    means the room gets serviced rather than silently skipped.
+    """
+    return not _is_inspection_task(task_type)
+
+
+def _room_needs_cleaning(room: Room) -> bool:
+    """True when the room has outstanding cleaning work.
+
+    Uses cleaning_status rather than the compound `status`, because an occupied
+    room awaiting a requested mid-stay clean reads as "occupied" while still
+    needing a housekeeper. Rooms out of service are excluded.
+    """
+    if room is None:
+        return False
+    if room.status in ("out_of_service", "out_of_order", "maintenance"):
+        return False
+    cleaning = getattr(room, "cleaning_status", None)
+    return cleaning in ("dirty", "in_progress") or room.status in ("dirty", "in_progress")
+
+
 class RoomStatusUpdate(BaseModel):
     status: str  # Use RoomStatus constants: clean, dirty, inspected, cleaning, maintenance, out_of_service
     notes: Optional[str] = None
@@ -119,6 +157,11 @@ async def list_rooms(
     for r, rt in results:
         task = task_by_room.get(r.id)
 
+        # An open (not completed/cancelled) task means cleaning is outstanding.
+        # Occupied rooms keep the "occupied" status, so this flag is what lets
+        # the UI show — and let staff act on — a pending cleaning request.
+        cleaning_requested = bool(task and task.status in ("pending", "assigned", "in_progress"))
+
         # Derive effective housekeeping status from compound fields
         # Priority: occupancy > maintenance/OOS/OOO > cleaning_status > legacy status
         occupancy = getattr(r, 'occupancy_status', None) or 'vacant'
@@ -147,7 +190,9 @@ async def list_rooms(
             # Task details for frontend (BUG-021: preserve task details for clean rooms)
             "task_id": task.id if task else None,
             "task_status": task.status if task else None,
+            "task_type": task.task_type if task else None,
             "task_priority": task.priority if task else None,
+            "cleaning_requested": cleaning_requested,
             "assigned_to": task.assigned_to if task else None,
             "assigned_staff_name": staff_map.get(task.assigned_to) if task and task.assigned_to else None,
             "started_at": _utc_iso(task.started_at) if task else None,
@@ -462,6 +507,14 @@ async def create_hk_task(
     )
     session.add(task)
 
+    # A cleaning request means the room needs attention — flag it as dirty so
+    # Housekeeping surfaces it. occupancy_status/status are left alone: an
+    # in-house guest's room stays "occupied" while cleaning is pending.
+    # Inspections are excluded: they verify a room that is already clean.
+    if _is_cleaning_task(payload.task_type) and room.cleaning_status not in ("dirty", "in_progress"):
+        room.cleaning_status = "dirty"
+        room.updated_at = datetime.utcnow()
+
     try:
         await session.commit()
         await session.refresh(task)
@@ -493,20 +546,23 @@ async def update_hk_task(
 
     # Auto-update room status when task status changes
     room = await session.get(Room, task.room_id) if task.room_id else None
+    def _room_is_occupied(rm) -> bool:
+        return (getattr(rm, 'occupancy_status', None) or 'vacant') == 'occupied' or rm.status == 'occupied'
+
     if payload.status == "in_progress" and old_task_status != "in_progress":
         if room:
-            room.status = "in_progress"
             room.cleaning_status = "in_progress"
+            # Occupied rooms keep their occupancy while being cleaned
+            if not _room_is_occupied(room):
+                room.status = "in_progress"
         if not task.started_at:
             task.started_at = datetime.utcnow()
     elif payload.status == "completed" and old_task_status != "completed":
         if room:
-            if task.task_type == "clean":
-                room.status = "clean"
-                room.cleaning_status = "clean"
-            elif task.task_type == "inspect":
-                room.status = "inspected"
-                room.cleaning_status = "inspected"
+            new_cleaning_status = "inspected" if _is_inspection_task(task.task_type) else "clean"
+            room.cleaning_status = new_cleaning_status
+            if not _room_is_occupied(room):
+                room.status = new_cleaning_status
 
     task.updated_at = datetime.utcnow()
     await session.commit()
@@ -766,10 +822,12 @@ async def start_task(
     task.started_at = now
     task.updated_at = now
 
-    # Also update room status to in_progress so room shows as being cleaned
+    # Also update room status to in_progress so room shows as being cleaned.
+    # An occupied room keeps its occupancy — mid-stay cleaning does not vacate it.
     room = await session.get(Room, task.room_id)
     if room:
-        room.status = "in_progress"
+        if (getattr(room, 'occupancy_status', None) or 'vacant') != 'occupied' and room.status != 'occupied':
+            room.status = "in_progress"
         room.cleaning_status = "in_progress"
         room.updated_at = now
 
@@ -835,15 +893,13 @@ async def complete_task(
     # Update room status and last_cleaned timestamp
     room = await session.get(Room, task.room_id)
     if room:
-        if task.task_type == "clean":
-            room.status = "clean"
-            room.cleaning_status = "clean"
-        elif task.task_type == "inspect":
-            room.status = "inspected"
-            room.cleaning_status = "inspected"
-        elif task.task_type in ["deep_clean", "checkout_clean"]:
-            room.status = "clean"
-            room.cleaning_status = "clean"
+        # Task types come from several UIs ("clean", "cleaning", "mid_stay", …),
+        # so anything that isn't an inspection clears the room to clean.
+        new_cleaning_status = "inspected" if _is_inspection_task(task.task_type) else "clean"
+        room.cleaning_status = new_cleaning_status
+        # Never overwrite occupancy: a guest still in the room stays "occupied".
+        if (getattr(room, 'occupancy_status', None) or 'vacant') != 'occupied' and room.status != 'occupied':
+            room.status = new_cleaning_status
         room.last_cleaned = now
         room.updated_at = now
 
@@ -1053,9 +1109,11 @@ async def auto_assign_task(
             message=f"Task is already {task.status}"
         )
 
-    # BUG-005 FIX: Validate room actually needs cleaning (only dirty rooms)
-    # Rooms that are in_progress already have an active cleaning session
-    if room and room.status != "dirty":
+    # BUG-005 FIX: Validate room actually needs cleaning.
+    # Checks cleaning_status so an occupied room with a requested mid-stay
+    # clean still qualifies (its `status` reads "occupied", not "dirty").
+    # Inspection tasks are exempt — they run on rooms that are already clean.
+    if room and _is_cleaning_task(task.task_type) and not _room_needs_cleaning(room):
         # Cancel the stale task
         task.status = "cancelled"
         task.updated_at = datetime.utcnow()
@@ -1065,7 +1123,7 @@ async def auto_assign_task(
             room_id=task.room_id,
             room_number=room_number,
             success=False,
-            message=f"Room is {room.status}, not dirty — task cancelled"
+            message=f"Room is {room.cleaning_status or room.status} — no cleaning needed, task cancelled"
         )
 
     # Use scheduling service to find best staff
@@ -1169,15 +1227,18 @@ async def auto_assign_all_pending_tasks(
         room = await session.get(Room, task.room_id) if task.room_id else None
         room_number = room.number if room else None
 
-        # BUG-005/BUG-017 FIX: Only assign tasks for dirty rooms
-        # Rooms that are in_progress already have an active cleaning session
-        if room and room.status != "dirty":
+        # BUG-005/BUG-017 FIX: Only assign tasks for rooms that actually need cleaning.
+        # Check cleaning_status, not the compound room status — an occupied room
+        # with a requested mid-stay clean needs a housekeeper just as much as a
+        # vacant dirty one, and cancelling its task silently drops the request.
+        # Inspection tasks are exempt — they run on rooms that are already clean.
+        if room and _is_cleaning_task(task.task_type) and not _room_needs_cleaning(room):
             results.append(AutoAssignResult(
                 task_id=task.id,
                 room_id=task.room_id,
                 room_number=room_number,
                 success=False,
-                message=f"Room is {room.status}, not dirty — skipping"
+                message=f"Room is {room.cleaning_status or room.status} — no cleaning needed, skipping"
             ))
             # Cancel the stale task since room doesn't need a new assignment
             task.status = "cancelled"

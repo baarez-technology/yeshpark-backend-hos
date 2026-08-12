@@ -538,6 +538,12 @@ async def recalculate_folio_totals(session: AsyncSession, folio: Folio) -> None:
     """
     Recalculate folio totals from non-voided line items.
 
+    A negative line item is only a PAYMENT when its item_type says so. Every
+    other negative line (early-checkout credits, negative tax lines, discounts,
+    downgrade adjustments) is a CREDIT that reduces the bill — counting those as
+    money received inflated total_payments and made the summary disagree with
+    the guest bill.
+
     Args:
         session: Database session
         folio: Folio to recalculate
@@ -549,12 +555,15 @@ async def recalculate_folio_totals(session: AsyncSession, folio: Folio) -> None:
         )
     )).all()
 
-    charges = sum(li.amount for li in items if li.amount > 0)
-    payments = sum(abs(li.amount) for li in items if li.amount < 0)
+    gross_charges = sum(li.amount for li in items if li.amount > 0)
+    payments = sum(abs(li.amount) for li in items if li.amount < 0 and li.item_type == "payment")
+    credits = sum(abs(li.amount) for li in items if li.amount < 0 and li.item_type != "payment")
 
-    folio.total_charges = round(charges, 2)
+    net_charges = gross_charges - credits
+
+    folio.total_charges = round(net_charges, 2)
     folio.total_payments = round(payments, 2)
-    folio.balance = round(charges - payments, 2)
+    folio.balance = round(net_charges - payments, 2)
     folio.updated_at = datetime.utcnow()
 
     logger.debug(

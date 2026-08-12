@@ -432,14 +432,19 @@ async def reservation_to_booking_response(reservation: Reservation, guest: Guest
             "view": room_type_obj.view_type or "City"
         }
     
-    # Compute payment amounts — use deposit_amount as the actual money received
+    # Compute payment amounts — deposit_amount is the actual money received
+    # (kept in sync with folio payments by folio.sync_booking_payment).
+    # Payment status is derived from that money, never from the stay status:
+    # a guest can be checked in and still owe the full balance.
     res_deposit = getattr(reservation, 'deposit_amount', None) or 0.0
-    res_payment_status = "paid" if reservation.status in ["checked_in", "checked_out"] else "pending"
-    # If paid but deposit wasn't recorded (legacy), treat as fully paid
-    if res_deposit == 0.0 and res_payment_status == "paid":
-        res_deposit = total_price
     res_amount_paid = res_deposit
     res_balance_due = max(0.0, round(total_price - res_amount_paid, 2))
+    if res_amount_paid <= 0.0:
+        res_payment_status = "pending"
+    elif res_balance_due <= 0.0:
+        res_payment_status = "paid"
+    else:
+        res_payment_status = "partial"
 
     return BookingResponse(
         id=str(reservation.id),
@@ -594,14 +599,22 @@ async def booking_to_response(booking: Booking, guest: Guest, room: Optional[Roo
             "view": room_type_obj.view_type or "City"
         }
 
-    # Compute payment amounts — use actual deposit, derive status from balance
+    # Compute payment amounts — use actual deposit, derive status from balance.
+    # deposit_amount mirrors the folio's recorded payments (see
+    # folio.sync_booking_payment), so zero money received means unpaid even if
+    # a stale/legacy row still carries payment_status="paid".
     bk_deposit = booking.deposit_amount or 0.0
     bk_payment_status = booking.payment_status or "pending"
-    # If deposit wasn't recorded but status is "paid" (legacy), treat as fully paid
-    if bk_deposit == 0.0 and bk_payment_status == "paid":
-        bk_deposit = total_price
     bk_amount_paid = bk_deposit
     bk_balance_due = max(0.0, round(total_price - bk_amount_paid, 2))
+    # Terminal payment states are preserved as-is; everything else is derived.
+    if bk_payment_status not in ("refunded", "partially_refunded", "cancelled", "void"):
+        if bk_amount_paid <= 0.0:
+            bk_payment_status = "pending"
+        elif bk_balance_due <= 0.0:
+            bk_payment_status = "paid"
+        else:
+            bk_payment_status = "partial"
 
     # Look up DNM setter name
     dnm_set_by_name = None
@@ -1632,9 +1645,13 @@ async def create_booking(
     )
     
     try:
-        # Determine payment status based on payment method
-        is_pay_at_hotel = payload.paymentMethod == "pay_at_hotel"
-        payment_status = "pending" if is_pay_at_hotel else "paid"
+        # Payment status at creation is ALWAYS "pending".
+        # No money is collected by this endpoint — deposit_amount stays 0 and
+        # actual payments are recorded through the folio / payment endpoints,
+        # which then move the booking to "partial" or "paid". Deriving "paid"
+        # from the selected payment method marked brand-new, unpaid bookings
+        # as Paid in the Bookings list.
+        payment_status = "pending"
 
         # Use frontend rate if provided (includes dynamic pricing, promotions)
         # Otherwise fall back to room type base price
@@ -1696,21 +1713,16 @@ async def create_booking(
             select(Booking).where(Booking.confirmation_code == reservation.confirmation_code)
         )).first()
 
-        # Update booking status based on payment method
-        # - "card": Payment processed online, mark as confirmed and paid
-        # - "pay_at_hotel": Guest will pay at check-in, mark as confirmed but payment pending
+        # Confirm the booking. The selected payment method only records the
+        # INTENDED method — it is not proof of payment, so the booking stays
+        # unpaid until a payment is actually recorded against the folio.
         if booking_record:
             logging.info(f"Found booking record ID: {booking_record.id}, updating status...")
             booking_record.status = "confirmed"
             pm = payload.paymentMethod or "card"
             booking_record.payment_method = pm
-            if pm in ("pay_at_hotel", "bank_transfer"):
-                booking_record.payment_status = "pending"
-                logging.info(f"Set payment_status=pending ({pm}) for booking {booking_record.id}")
-            else:
-                # card, upi — mark as paid (optimistic; actual money tracked via deposit_amount)
-                booking_record.payment_status = "paid"
-                logging.info(f"Set payment_status=paid ({pm}) for booking {booking_record.id}")
+            booking_record.payment_status = "pending"
+            logging.info(f"Set payment_status=pending ({pm}) for booking {booking_record.id} — no payment recorded yet")
 
             # Update pricing components from frontend if provided
             if payload.basePrice and payload.basePrice > 0:
@@ -4537,6 +4549,21 @@ async def cancel_checkin(
     today = await get_business_date(session)
     if booking.departure_date <= today:
         raise HTTPException(status_code=400, detail="Cannot cancel check-in for an expired booking (checkout date has passed)")
+
+    # Cancel Check-in is a same-day correction for a mistaken check-in, NOT a
+    # way to undo a stay. Once the guest has spent a night in the room the stay
+    # has really happened — reversing it would wipe an occupied night and make
+    # the booking cancellable again. Those guests must be checked out instead.
+    checkin_date = booking.check_in_date.date() if booking.check_in_date else booking.arrival_date
+    if checkin_date < today:
+        nights_stayed = (today - checkin_date).days
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                f"Cannot cancel check-in — the guest has been in-house for {nights_stayed} night(s) "
+                f"since {checkin_date}. Use Check-out to end the stay."
+            )
+        )
 
     # Also get legacy Reservation
     reservation_result = await session.exec(

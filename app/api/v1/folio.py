@@ -51,11 +51,13 @@ async def recalculate_folio(session: AsyncSession, folio: Folio):
     # Separate charges, credits (adjustments), and payments
     gross_charges = sum(li.amount for li in items if li.amount > 0)
 
-    # Credits are negative adjustments that reduce the bill (NOT payments)
-    credits = sum(abs(li.amount) for li in items if li.amount < 0 and li.item_type == "adjustment")
-
     # Payments are actual money received from guest
     payments = sum(abs(li.amount) for li in items if li.amount < 0 and li.item_type == "payment")
+
+    # Everything else negative is a credit that reduces the bill. This must
+    # include negative "tax" lines (early-checkout GST credits) — matching them
+    # on item_type == "adjustment" alone silently dropped them from the total.
+    credits = sum(abs(li.amount) for li in items if li.amount < 0 and li.item_type != "payment")
 
     # Net charges = gross charges minus credits
     net_charges = gross_charges - credits
