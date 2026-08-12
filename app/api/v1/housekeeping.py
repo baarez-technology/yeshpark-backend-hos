@@ -352,7 +352,40 @@ async def update_room_status(
                 created_at=datetime.utcnow()
             )
             session.add(task)
-    
+
+    # Auto-create a REAL maintenance work order when a room is blocked.
+    # The Maintenance module previously had to invent a placeholder row for
+    # blocked rooms with no work order; those placeholders had no database id,
+    # so assigning a technician or starting the job failed. Persisting a proper
+    # MaintenanceRequest here means the entry is a valid, actionable work order.
+    if normalized_status in (RoomStatus.OUT_OF_SERVICE, RoomStatus.OUT_OF_ORDER, RoomStatus.MAINTENANCE):
+        existing_wo = (await session.exec(
+            select(MaintenanceRequest).where(
+                MaintenanceRequest.room_id == room_id,
+                MaintenanceRequest.status.notin_(["completed", "cancelled"]),
+            )
+        )).first()
+        if not existing_wo:
+            import uuid
+            reason = (payload.notes or "").strip() or f"Room blocked ({normalized_status})"
+            is_ooo = normalized_status == RoomStatus.OUT_OF_ORDER
+            session.add(MaintenanceRequest(
+                work_order_id=f"WO-{datetime.utcnow().strftime('%Y%m%d')}-{str(uuid.uuid4())[:8].upper()}",
+                room_id=room.id,
+                room_number=room.number,
+                location=f"Room {room.number}",
+                title=reason,
+                category="general",
+                issue_type="general",
+                issue=reason,
+                description=reason,
+                priority="high" if is_ooo else "medium",
+                status="pending",
+                is_out_of_order=is_ooo,
+                reported_at=datetime.utcnow(),
+                notes=payload.notes,
+            ))
+
     await session.commit()
     await session.refresh(room)
     result = {"id": room.id, "number": room.number, "status": room.status}

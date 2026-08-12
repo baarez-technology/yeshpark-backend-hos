@@ -18,6 +18,8 @@ VALID_STAFF_ROLES = {
     "reservation_manager",
     "housekeeping_manager",
     "housekeeper",
+    "maintenance_manager",
+    "technician",
     "revenue_manager",
     "accounts_manager",
 }
@@ -42,6 +44,7 @@ _LEGACY_EXPANSION: Dict[str, Set[str]] = {
     "maintenance": {
         "admin", "general_manager", "duty_manager",
         "housekeeping_manager", "housekeeper",
+        "maintenance_manager", "technician",
     },
     "finance": {
         "admin", "general_manager", "revenue_manager", "accounts_manager",
@@ -70,6 +73,8 @@ ROLE_DEPARTMENT_MAP = {
     "reservation_manager": "reservations",
     "housekeeping_manager": "housekeeping",
     "housekeeper": "housekeeping",
+    "maintenance_manager": "maintenance",
+    "technician": "maintenance",
     "revenue_manager": "revenue",
     "accounts_manager": "finance",
 }
@@ -84,6 +89,8 @@ ROLE_LABELS = {
     "reservation_manager": "Reservation Manager",
     "housekeeping_manager": "Housekeeping Manager",
     "housekeeper": "Housekeeper",
+    "maintenance_manager": "Maintenance Manager",
+    "technician": "Technician",
     "revenue_manager": "Revenue Manager",
     "accounts_manager": "Accounts Manager",
 }
